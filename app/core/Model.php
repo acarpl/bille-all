@@ -1,5 +1,5 @@
 <?php
-// app/core/Model.php
+// app/core/Model.php - FINAL WORKING VERSION
 
 class Model {
     protected $db;
@@ -7,10 +7,9 @@ class Model {
     protected $primaryKey = 'id';
     
     public function __construct() {
-        $this->db = Database::getInstance()->getConnection();
+        $this->db = Database::getInstance();
     }
     
-    // Basic CRUD operations
     public function find($id) {
         $sql = "SELECT * FROM {$this->table} WHERE {$this->primaryKey} = ?";
         return $this->db->fetch($sql, [$id]);
@@ -50,8 +49,7 @@ class Model {
         $placeholders = implode(', ', array_fill(0, count($data), '?'));
         
         $sql = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array_values($data));
+        $this->db->query($sql, array_values($data));
         
         return $this->db->lastInsertId();
     }
@@ -68,14 +66,14 @@ class Model {
         $params[] = $id;
         $sql = "UPDATE {$this->table} SET " . implode(', ', $setClause) . " WHERE {$this->primaryKey} = ?";
         
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute($params);
+        $stmt = $this->db->query($sql, $params);
+        return $stmt->rowCount() > 0;
     }
     
     public function delete($id) {
         $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = ?";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([$id]);
+        $stmt = $this->db->query($sql, [$id]);
+        return $stmt->rowCount() > 0;
     }
 }
 ?>

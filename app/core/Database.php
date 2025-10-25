@@ -1,5 +1,5 @@
 <?php
-// app/core/Database.php
+// app/core/Database.php - FINAL WORKING VERSION
 
 class Database {
     private static $instance = null;
@@ -29,23 +29,32 @@ class Database {
         return $this->connection;
     }
     
-    // Helper methods untuk query execution
+    // Basic query execution
     public function query($sql, $params = []) {
         $stmt = $this->connection->prepare($sql);
         $stmt->execute($params);
         return $stmt;
     }
     
+    // Get single row
     public function fetch($sql, $params = []) {
-        return $this->query($sql, $params)->fetch();
+        $stmt = $this->query($sql, $params);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
+    // Get all rows
     public function fetchAll($sql, $params = []) {
-        return $this->query($sql, $params)->fetchAll();
+        $stmt = $this->query($sql, $params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    // Get last insert ID
     public function lastInsertId() {
         return $this->connection->lastInsertId();
+    }
+
+    public function prepare($sql) {
+        return $this->connection->prepare($sql);
     }
 }
 ?>

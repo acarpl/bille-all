@@ -90,6 +90,44 @@
             padding: 2rem;
             backdrop-filter: blur(10px);
         }
+
+        .translate-wrapper {
+      display: inline-block;
+      position: relative;
+      top: 2px;
+    }
+
+    .goog-te-gadget {
+      font-size: 0 !important;
+    }
+
+    .goog-te-gadget select {
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .goog-logo-link {
+      display: none !important;
+    }
+
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
     </style>
+    <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en', // bahasa asli websitemu
+      includedLanguages: 'id,en', // target: Indonesia & Inggris
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 </head>
 <body>

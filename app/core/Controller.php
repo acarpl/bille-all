@@ -76,9 +76,8 @@ class Controller {
     }
     
     protected function requireAdmin() {
-        $this->requireAuth();
-        if ($_SESSION['user_role'] !== ROLE_ADMIN) {
-            $this->redirect('home/access-denied');
+        if (!Auth::isAdmin()) {
+            $this->redirect('home');
         }
     }
     
@@ -105,5 +104,10 @@ class Controller {
         }
         return isset($_GET[$key]) ? $this->sanitize($_GET[$key]) : $default;
     }
+
+    protected function isAjax() {
+    return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) 
+           && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+}
 }
 ?>

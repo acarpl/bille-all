@@ -18,6 +18,9 @@ require_once 'app/core/Model.php';
 require_once 'app/core/Controller.php';
 require_once 'app/core/Auth.php';
 
+require_once 'app/controllers/AuthController.php';
+require_once 'app/controllers/HomeController.php';
+
 // Initialize and run the router
 $router = new Router();
 $router->route();

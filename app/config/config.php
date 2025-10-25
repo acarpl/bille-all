@@ -13,12 +13,12 @@ define('PUBLIC_PATH', BASE_PATH . '/public');
 define('UPLOAD_PATH', PUBLIC_PATH . '/uploads');
 
 // URL constants (sesuaikan dengan local setup kamu)
-define('BASE_URL', 'http://localhost/bille-southside');
+define('BASE_URL', 'http://localhost/billeallacsess');
 define('ASSETS_URL', BASE_URL . '/public/assets');
 
 // Session configuration
 define('SESSION_TIMEOUT', 3600); // 1 hour
-define('SESSION_NAME', 'bille_southside');
+define('SESSION_NAME', 'billeallacsess');
 
 // Timezone
 date_default_timezone_set('Asia/Jakarta');

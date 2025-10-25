@@ -1,5 +1,5 @@
 <?php
-// app/controllers/AuthController.php
+// app/controllers/AuthController.php - SIMPLE WORKING VERSION
 
 class AuthController extends Controller {
     private $userModel;
@@ -18,7 +18,7 @@ class AuthController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handleLogin();
         } else {
-            $this->view('auth/login');
+            $this->viewWithoutLayout('auth/login');
         }
     }
     
@@ -58,7 +58,7 @@ class AuthController extends Controller {
         }
         
         // Tampilkan form dengan errors
-        $this->view('auth/login', ['errors' => $errors, 'old_input' => $_POST]);
+        $this->viewWithoutLayout('auth/login', ['errors' => $errors, 'old_input' => $_POST]);
     }
     
     public function register() {
@@ -69,7 +69,7 @@ class AuthController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handleRegister();
         } else {
-            $this->view('auth/register');
+            $this->viewWithoutLayout('auth/register');
         }
     }
     
@@ -86,10 +86,8 @@ class AuthController extends Controller {
         $errors = $this->validateRegistration($data);
         
         if (empty($errors)) {
-            // Check if email already exists
-            $existingUser = $this->userModel->findByEmail($data['email']);
-            
-            if ($existingUser) {
+            // Check if email already exists - SIMPLE VERSION
+            if ($this->userModel->emailExists($data['email'])) {
                 $errors['email'] = 'Email already registered';
             } else {
                 // Create new user
@@ -100,7 +98,8 @@ class AuthController extends Controller {
                     'password' => $data['password'],
                     'student_id' => $data['student_id'],
                     'role' => ROLE_CUSTOMER,
-                    'loyalty_points' => 100 // Bonus points for registration
+                    'loyalty_points' => 100,
+                    'is_active' => true
                 ];
                 
                 $userId = $this->userModel->createUser($userData);
@@ -116,7 +115,7 @@ class AuthController extends Controller {
             }
         }
         
-        $this->view('auth/register', ['errors' => $errors, 'old_input' => $data]);
+        $this->viewWithoutLayout('auth/register', ['errors' => $errors, 'old_input' => $data]);
     }
     
     private function validateRegistration($data) {
@@ -144,10 +143,6 @@ class AuthController extends Controller {
             $errors['password_confirm'] = 'Passwords do not match';
         }
         
-        if (!empty($data['phone']) && !preg_match('/^[0-9+\-\s()]{10,}$/', $data['phone'])) {
-            $errors['phone'] = 'Invalid phone number format';
-        }
-        
         return $errors;
     }
     
@@ -155,17 +150,75 @@ class AuthController extends Controller {
         Auth::logout();
         $this->redirect('auth/login');
     }
-    
+
     public function profile() {
         $this->requireAuth();
         
         $user = Auth::user();
-        $stats = $this->userModel->getCustomerStats($user['id']);
+        $userModel = new UserModel();
+        $bookingModel = new BookingModel();
+        $paymentModel = new PaymentModel();
         
-        $this->view('auth/profile', [
+        // Get user stats
+        $stats = $userModel->getCustomerStats($user['id']);
+        
+        // Get user bookings
+        $bookings = $bookingModel->getUserBookings($user['id']);
+        
+        // Get payment history
+        $payments = $paymentModel->getUserPayments($user['id']);
+        
+        $data = [
+            'title' => 'My Profile',
+            'current_route' => 'auth/profile',
             'user' => $user,
-            'stats' => $stats
-        ]);
+            'stats' => $stats,
+            'bookings' => $bookings,
+            'payments' => $payments
+        ];
+        
+        $this->view('auth/profile', $data);
+    }
+    
+    public function updateProfile() {
+        $this->requireAuth();
+        
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('auth/profile');
+            return;
+        }
+        
+        $userId = Auth::id();
+        $userModel = new UserModel();
+        
+        $updateData = [
+            'name' => $this->getPost('name'),
+            'phone' => $this->getPost('phone'),
+            'student_id' => $this->getPost('student_id')
+        ];
+        
+        // Handle password update if provided
+        $password = $this->getPost('password');
+        if (!empty($password)) {
+            if (strlen($password) < 6) {
+                $_SESSION['profile_error'] = 'Password must be at least 6 characters';
+                $this->redirect('auth/profile');
+                return;
+            }
+            $updateData['password'] = password_hash($password, PASSWORD_DEFAULT);
+        }
+        
+        if ($userModel->update($userId, $updateData)) {
+            // Update session dengan data terbaru
+            $updatedUser = $userModel->find($userId);
+            Auth::login($updatedUser);
+            
+            $_SESSION['profile_success'] = 'Profile updated successfully!';
+        } else {
+            $_SESSION['profile_error'] = 'Failed to update profile';
+        }
+        
+        $this->redirect('auth/profile');
     }
 }
 ?>

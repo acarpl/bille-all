@@ -30,10 +30,9 @@
                 <div>
                     <h4 style="margin-bottom: 1rem; font-weight: 700;">Contact Info</h4>
                     <div style="color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
-                        <p>📍 Southside Street 123, Jakarta</p>
-                        <p>📞 (021) 1234-5678</p>
+                        <p>📍 GARDEN BOULEVARD M23/233-235 CITRA RAYA TANGERANG</p>
+                        <p>📞 62 851-2948-2769</p>
                         <p>🕒 Open daily 12:00 - 03:00</p>
-                        <p>✉️ hello@billesouthside.com</p>
                     </div>
                 </div>
             </div>

@@ -4,189 +4,328 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Bille Southside</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #1C212D;
+            --accent: #E63946;
+            --text-light: #F8F9FA;
+            --text-muted: #ADB5BD;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --success: #27ae60;
+        }
+        
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1rem;
         }
+        
         .register-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 16px;
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
+        
         .logo { 
             text-align: center; 
-            margin-bottom: 1.5rem;
-            color: #333;
+            margin-bottom: 2rem;
         }
-        .form-group { margin-bottom: 1rem; }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .logo p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .benefits {
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .benefits h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .benefits li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .form-group { 
+            margin-bottom: 1.5rem; 
+        }
+        
         label { 
             display: block; 
-            margin-bottom: 0.5rem; 
+            margin-bottom: 0.75rem; 
             font-weight: 600;
-            color: #555;
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
+        
         input[type="text"],
         input[type="email"],
         input[type="password"],
         input[type="tel"] {
             width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            color: var(--text-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
         }
+        
         input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.12);
         }
+        
+        input::placeholder {
+            color: var(--text-muted);
+        }
+        
         .btn {
             width: 100%;
-            padding: 0.75rem;
-            background: #667eea;
+            padding: 1rem;
+            background: var(--accent);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
+        
         .btn:hover {
-            background: #5a6fd8;
+            background: #d32f3d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
         }
+        
         .error { 
-            color: #e74c3c; 
+            color: var(--accent); 
             font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-        .links {
-            text-align: center;
-            margin-top: 1rem;
-        }
-        .links a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-        .benefits {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-        .benefits ul {
-            list-style: none;
-            padding: 0;
-        }
-        .benefits li {
-            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
+            gap: 0.5rem;
         }
-        .benefits li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 0.5rem;
+        
+        .error-general {
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .links a:hover {
+            color: #d32f3d;
+        }
+        
+        .optional {
+            color: var(--text-muted);
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="register-container">
         <div class="logo">
-            <h1>🎱 Bille Southside</h1>
+            <h1>🎱 <span class="text-accent">Bille</span> Southside</h1>
             <p>Create your account</p>
         </div>
         
         <div class="benefits">
-            <p><strong>Join us and get:</strong></p>
+            <h4>⭐ JOIN THE COMMUNITY</h4>
             <ul>
-                <li>100 Loyalty Points</li>
-                <li>Easy booking & payments</li>
-                <li>Exclusive member promotions</li>
-                <li>Tournament registration</li>
+                <li>100 Welcome Loyalty Points</li>
+                <li>Exclusive Member-Only Promotions</li>
+                <li>Priority Tournament Registration</li>
+                <li>Digital Booking & Payments</li>
             </ul>
         </div>
         
         <?php if (isset($errors['general'])): ?>
-            <div class="error" style="background: #fee; padding: 0.5rem; border-radius: 5px; margin-bottom: 1rem;">
-                <?php echo $errors['general']; ?>
+            <div class="error-general">
+                ⚠️ <?php echo $errors['general']; ?>
             </div>
         <?php endif; ?>
         
         <form method="POST">
             <div class="form-group">
-                <label for="name">Full Name *</label>
+                <label for="name">FULL NAME *</label>
                 <input type="text" id="name" name="name" 
-                       value="<?php echo isset($old_input['name']) ? $old_input['name'] : ''; ?>" 
+                       value="<?php echo isset($old_input['name']) ? htmlspecialchars($old_input['name']) : ''; ?>" 
+                       placeholder="Enter your full name"
                        required>
                 <?php if (isset($errors['name'])): ?>
-                    <div class="error"><?php echo $errors['name']; ?></div>
+                    <div class="error">⚠️ <?php echo $errors['name']; ?></div>
                 <?php endif; ?>
             </div>
             
             <div class="form-group">
-                <label for="email">Email *</label>
+                <label for="email">EMAIL ADDRESS *</label>
                 <input type="email" id="email" name="email" 
-                       value="<?php echo isset($old_input['email']) ? $old_input['email'] : ''; ?>" 
+                       value="<?php echo isset($old_input['email']) ? htmlspecialchars($old_input['email']) : ''; ?>" 
+                       placeholder="Enter your email"
                        required>
                 <?php if (isset($errors['email'])): ?>
-                    <div class="error"><?php echo $errors['email']; ?></div>
+                    <div class="error">⚠️ <?php echo $errors['email']; ?></div>
                 <?php endif; ?>
             </div>
             
             <div class="form-group">
-                <label for="phone">Phone Number</label>
+                <label for="phone">PHONE NUMBER <span class="optional">(Optional)</span></label>
                 <input type="tel" id="phone" name="phone" 
-                       value="<?php echo isset($old_input['phone']) ? $old_input['phone'] : ''; ?>"
+                       value="<?php echo isset($old_input['phone']) ? htmlspecialchars($old_input['phone']) : ''; ?>"
                        placeholder="081234567890">
                 <?php if (isset($errors['phone'])): ?>
-                    <div class="error"><?php echo $errors['phone']; ?></div>
+                    <div class="error">⚠️ <?php echo $errors['phone']; ?></div>
                 <?php endif; ?>
             </div>
             
             <div class="form-group">
-                <label for="student_id">Student ID (for Student Promo)</label>
+                <label for="student_id">STUDENT ID <span class="optional">(For Student Promo)</span></label>
                 <input type="text" id="student_id" name="student_id" 
-                       value="<?php echo isset($old_input['student_id']) ? $old_input['student_id'] : ''; ?>"
-                       placeholder="Optional">
+                       value="<?php echo isset($old_input['student_id']) ? htmlspecialchars($old_input['student_id']) : ''; ?>"
+                       placeholder="Enter your student ID">
             </div>
             
             <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password">PASSWORD *</label>
+                <input type="password" id="password" name="password" 
+                       placeholder="Create a password (min. 6 characters)"
+                       required>
                 <?php if (isset($errors['password'])): ?>
-                    <div class="error"><?php echo $errors['password']; ?></div>
+                    <div class="error">⚠️ <?php echo $errors['password']; ?></div>
                 <?php endif; ?>
             </div>
             
             <div class="form-group">
-                <label for="password_confirm">Confirm Password *</label>
-                <input type="password" id="password_confirm" name="password_confirm" required>
+                <label for="password_confirm">CONFIRM PASSWORD *</label>
+                <input type="password" id="password_confirm" name="password_confirm" 
+                       placeholder="Confirm your password"
+                       required>
                 <?php if (isset($errors['password_confirm'])): ?>
-                    <div class="error"><?php echo $errors['password_confirm']; ?></div>
+                    <div class="error">⚠️ <?php echo $errors['password_confirm']; ?></div>
                 <?php endif; ?>
             </div>
             
-            <button type="submit" class="btn">Create Account</button>
+            <button type="submit" class="btn">🚀 Create Account</button>
         </form>
         
         <div class="links">
-            <p>Already have an account? <a href="<?php echo Router::url('auth/login'); ?>">Sign in</a></p>
+            <p>Already have an account? <a href="<?php echo Router::url('auth/login'); ?>">Sign in here</a></p>
         </div>
     </div>
+
+    <script>
+        // Add focus effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Real-time password confirmation check
+            const password = document.getElementById('password');
+            const passwordConfirm = document.getElementById('password_confirm');
+            
+            function checkPasswordMatch() {
+                if (password.value && passwordConfirm.value) {
+                    if (password.value !== passwordConfirm.value) {
+                        passwordConfirm.style.borderColor = 'var(--accent)';
+                    } else {
+                        passwordConfirm.style.borderColor = 'var(--success)';
+                    }
+                }
+            }
+            
+            password.addEventListener('input', checkPasswordMatch);
+            passwordConfirm.addEventListener('input', checkPasswordMatch);
+        });
+    </script>
 </body>
 </html>

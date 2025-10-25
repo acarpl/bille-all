@@ -40,11 +40,18 @@ class Auth {
     }
     
     public static function isAdmin() {
-        return self::role() === ROLE_ADMIN;
+        return self::check() && $_SESSION['user_role'] === ROLE_ADMIN;
     }
     
     public static function isCustomer() {
         return self::role() === ROLE_CUSTOMER;
+    }
+    
+    public static function requireAdmin() {
+        if (!self::isAdmin()) {
+            header('Location: ' . Router::url('auth/login'));
+            exit;
+        }
     }
 }
 ?>
