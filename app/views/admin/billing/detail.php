@@ -3,17 +3,17 @@
     <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 2rem;">
         <div>
             <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
-                Billing Details
+                Detail Penagihan
             </h1>
-            <p style="color: var(--text-muted);">Billing code: <?php echo htmlspecialchars($data['billing']['billing_code']); ?></p>
+            <p style="color: var(--text-muted);">Kode Penagihan: <?php echo htmlspecialchars($data['billing']['billing_code']); ?></p>
         </div>
         <div style="display: flex; gap: 1rem;">
             <a href="<?php echo BASE_URL; ?>/admin/billings" class="btn btn-outline">
-                ← Back to Billings
+                ← Kembali ke Penagihan
             </a>
             <a href="<?php echo BASE_URL; ?>/billing/view/<?php echo $data['billing']['id']; ?>" 
                class="btn btn-info" target="_blank">
-                🖨️ Print Billing
+                🖨️ Print Penagihan
             </a>
         </div>
     </div>
@@ -29,12 +29,12 @@
         <!-- Billing Information -->
         <div class="card">
             <div style="padding: 1.5rem; border-bottom: 1px solid var(--border-color);">
-                <h3 style="font-weight: 600; margin: 0;">Billing Information</h3>
+                <h3 style="font-weight: 600; margin: 0;">Informasi Penagihan</h3>
             </div>
             <div style="padding: 1.5rem;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Billing Code</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Kode Penagihan</label>
                         <p style="font-weight: 600; margin: 0;"><?php echo htmlspecialchars($data['billing']['billing_code']); ?></p>
                     </div>
                     <div>
@@ -47,28 +47,28 @@
                         </span>
                     </div>
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Amount</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Jumlah</label>
                         <p style="font-weight: 600; margin: 0; font-size: 1.2rem;">
                             Rp <?php echo number_format($data['billing']['amount'], 0, ',', '.'); ?>
                         </p>
                     </div>
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Due Date</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Jatuh Tempo</label>
                         <p style="font-weight: 600; margin: 0;"><?php echo date('d/m/Y', strtotime($data['billing']['due_date'])); ?></p>
                     </div>
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Created Date</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Tanggal Dibuat</label>
                         <p style="margin: 0;"><?php echo date('d/m/Y H:i', strtotime($data['billing']['created_at'])); ?></p>
                     </div>
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Last Updated</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Terkahir Diperbarui</label>
                         <p style="margin: 0;"><?php echo date('d/m/Y H:i', strtotime($data['billing']['updated_at'])); ?></p>
                     </div>
                 </div>
 
                 <?php if ($data['billing']['notes']): ?>
                 <div style="margin-top: 1.5rem;">
-                    <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Notes</label>
+                    <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Catatan</label>
                     <p style="margin: 0; padding: 1rem; background: var(--card-bg); border-radius: 8px;">
                         <?php echo htmlspecialchars($data['billing']['notes']); ?>
                     </p>
@@ -82,11 +82,11 @@
             <!-- Customer Info -->
             <div class="card">
                 <div style="padding: 1.5rem; border-bottom: 1px solid var(--border-color);">
-                    <h3 style="font-weight: 600; margin: 0;">Customer Information</h3>
+                    <h3 style="font-weight: 600; margin: 0;">Informasi Pelanggan</h3>
                 </div>
                 <div style="padding: 1.5rem;">
                     <div style="margin-bottom: 1rem;">
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Name</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Nama</label>
                         <p style="font-weight: 600; margin: 0;"><?php echo htmlspecialchars($data['billing']['user_name']); ?></p>
                     </div>
                     <div style="margin-bottom: 1rem;">
@@ -95,7 +95,7 @@
                     </div>
                     <?php if ($data['billing']['booking_code']): ?>
                     <div>
-                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Booking Code</label>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Kode Pemesanan</label>
                         <p style="margin: 0;">
                             <a href="<?php echo BASE_URL; ?>/admin/bookings/detail/<?php echo $data['billing']['booking_id']; ?>" 
                                class="badge badge-info" style="text-decoration: none;">
@@ -110,34 +110,34 @@
             <!-- Quick Actions -->
             <div class="card">
                 <div style="padding: 1.5rem; border-bottom: 1px solid var(--border-color);">
-                    <h3 style="font-weight: 600; margin: 0;">Quick Actions</h3>
+                    <h3 style="font-weight: 600; margin: 0;">Tindakan Cepat</h3>
                 </div>
                 <div style="padding: 1.5rem;">
                     <form action="<?php echo BASE_URL; ?>/admin/billings/update-status/<?php echo $data['billing']['id']; ?>" method="POST">
                         <div style="margin-bottom: 1rem;">
-                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Update Status</label>
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Perbarui Status</label>
                             <select name="status" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px;">
                                 <option value="pending" <?php echo $data['billing']['status'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
-                                <option value="paid" <?php echo $data['billing']['status'] == 'paid' ? 'selected' : ''; ?>>Paid</option>
-                                <option value="overdue" <?php echo $data['billing']['status'] == 'overdue' ? 'selected' : ''; ?>>Overdue</option>
-                                <option value="cancelled" <?php echo $data['billing']['status'] == 'cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                                <option value="paid" <?php echo $data['billing']['status'] == 'paid' ? 'selected' : ''; ?>>Dibayar</option>
+                                <option value="overdue" <?php echo $data['billing']['status'] == 'overdue' ? 'selected' : ''; ?>>Terlambat</option>
+                                <option value="cancelled" <?php echo $data['billing']['status'] == 'cancelled' ? 'selected' : ''; ?>>Dibatalkan</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            💾 Update Status
+                            💾 Perbarui Status
                         </button>
                     </form>
 
                     <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
                         <a href="mailto:<?php echo htmlspecialchars($data['billing']['email']); ?>?subject=Billing%20Reminder%20<?php echo urlencode($data['billing']['billing_code']); ?>" 
                            class="btn btn-outline" style="text-align: center;">
-                            📧 Send Reminder
+                            📧 Kirim Pengingat
                         </a>
                         
                         <form method="POST" action="<?php echo BASE_URL; ?>/admin/billings/delete/<?php echo $data['billing']['id']; ?>" 
                               onsubmit="return confirm('Are you sure you want to delete this billing? This action cannot be undone.')">
                             <button type="submit" class="btn btn-error" style="width: 100%;">
-                                🗑️ Delete Billing
+                                🗑️ Hapus Tagihan
                             </button>
                         </form>
                     </div>

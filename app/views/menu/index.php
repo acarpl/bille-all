@@ -2,10 +2,10 @@
 <div style="padding: 2rem 0;">
     <div style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
-            Our <span class="text-accent">Menu</span>
+            Menu <span class="text-accent">Kami</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 500;">
-            Discover delicious food, refreshing drinks, and exclusive Bille merchandise
+            Temukan makanan lezat, minuman menyegarkan, dan merchandise Bille eksklusif
         </p>
     </div>
 
@@ -13,16 +13,16 @@
     <div class="card" style="margin-bottom: 2rem;">
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
             <button class="category-filter btn btn-outline active" data-category="all">
-                🍴 All Menu
+                🍴 Semua Menu
             </button>
             <button class="category-filter btn btn-outline" data-category="food">
-                🍔 Food
+                🍔 Makanan
             </button>
             <button class="category-filter btn btn-outline" data-category="beverage">
-                🥤 Beverages
+                🥤 Minuman
             </button>
             <button class="category-filter btn btn-outline" data-category="snack">
-                🍿 Snacks
+                🍿 Camilan
             </button>
             <button class="category-filter btn btn-outline" data-category="merchandise">
                 🛍️ Merchandise
@@ -35,7 +35,7 @@
         <!-- Food Category -->
         <div class="category-section" data-category="food">
             <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>🍔</span> Food & Meals
+                <span>🍔</span> Makanan
             </h3>
             
             <div class="products-grid">
@@ -76,7 +76,7 @@
                                 echo $product['stock'] > 10 ? 'stock-available' : 
                                     ($product['stock'] > 0 ? 'stock-low' : 'stock-out');
                             ?>">
-                                Stock: <?php echo $product['stock']; ?> pcs
+                                Stok: <?php echo $product['stock']; ?> pcs
                             </div>
                             
                             <?php if (!empty($product['description'])): ?>
@@ -100,8 +100,8 @@
                 <?php if (empty($groupedProducts['food'])): ?>
                     <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🍔</div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">No Food Items Available</h4>
-                        <p>Check back later for our delicious food options.</p>
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak Ada Item Makanan Tersedia</h4>
+                        <p>Periksa kembali nanti untuk pilihan makanan lezat kami.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -110,7 +110,7 @@
         <!-- Beverages Category -->
         <div class="category-section" data-category="beverage">
             <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>🥤</span> Beverages & Drinks
+                <span>🥤</span> Minuman
             </h3>
             
             <div class="products-grid">
@@ -175,8 +175,8 @@
                 <?php if (empty($groupedProducts['beverage'])): ?>
                     <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🥤</div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">No Beverages Available</h4>
-                        <p>Check back later for our refreshing drinks.</p>
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak ada Minuman Tersedia</h4>
+                        <p>Periksa kembali nanti untuk pilihan minuman menyegarkan kami.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -185,7 +185,7 @@
         <!-- Snacks Category -->
         <div class="category-section" data-category="snack">
             <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>🍿</span> Snacks & Sides
+                <span>🍿</span> Camilan dan Sampingan
             </h3>
             
             <div class="products-grid">
@@ -250,8 +250,8 @@
                 <?php if (empty($groupedProducts['snack'])): ?>
                     <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🍿</div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">No Snacks Available</h4>
-                        <p>Check back later for our tasty snacks.</p>
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak ada Camilan Tersedia</h4>
+                        <p>Periksa kembali nanti untuk pilihan camilan lezat kami.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -326,8 +326,8 @@
                 <?php if (empty($groupedProducts['merchandise'])): ?>
                     <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">🛍️</div>
-                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">No Merchandise Available</h4>
-                        <p>Check back later for our exclusive Bille merchandise.</p>
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak ada Merchandise Tersedia</h4>
+                        <p>Periksa kembali nanti untuk merchandise eksklusif Bille kami.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -340,7 +340,7 @@
                             background: var(--card-bg); border-left: 1px solid var(--border-color);
                             transition: right 0.3s ease; z-index: 1000; padding: 2rem; overflow-y: auto;">
     <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 2rem;">
-        <h3 style="font-weight: 700;">🛒 Your Order</h3>
+        <h3 style="font-weight: 700;">🛒 Pesanan Anda</h3>
         <button id="closeCart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">
             ✕
         </button>
@@ -352,7 +352,7 @@
     
     <div id="cartEmpty" style="text-align: center; padding: 2rem; color: var(--text-muted);">
         <div style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
-        <p>Your cart is empty</p>
+        <p>Keranjang belanja Anda kosong</p>
     </div>
     
     <div id="cartTotal" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color); 

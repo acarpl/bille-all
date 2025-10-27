@@ -2,10 +2,10 @@
     <!-- Header -->
     <div style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
-            🏆 <span class="text-accent">My Tournament Registrations</span>
+            🏆 <span class="text-accent">Registrasi Turnamen Saya</span>
         </h1>
         <p style="color: var(--text-muted); font-weight: 500;">
-            Manage your tournament participations and payments
+            Kelola partisipasi dan pembayaran turnamen Anda
         </p>
     </div>
 
@@ -53,7 +53,7 @@
     <!-- Registrations List -->
     <?php if (!empty($registrations)): ?>
         <div class="card">
-            <h2 style="font-weight: 800; margin-bottom: 1.5rem;">Your Tournament Registrations</h2>
+            <h2 style="font-weight: 800; margin-bottom: 1.5rem;">Registrasi Turnamen Anda</h2>
             
             <div style="display: flex; flex-direction: column; gap: 1rem;">
                 <?php foreach ($registrations as $registration): ?>
@@ -65,17 +65,17 @@
                                 <?= htmlspecialchars($registration['tournament_name']) ?>
                             </div>
                             <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                                Team: <strong><?= htmlspecialchars($registration['team_name']) ?></strong> • 
-                                Players: <?= $registration['player_count'] ?> • 
-                                Fee: <strong>Rp <?= number_format($registration['total_fee'], 0, ',', '.') ?></strong>
+                                Tim: <strong><?= htmlspecialchars($registration['team_name']) ?></strong> • 
+                                Pemain: <?= $registration['player_count'] ?> • 
+                                Biaya: <strong>Rp <?= number_format($registration['total_fee'], 0, ',', '.') ?></strong>
                             </div>
                             <div style="display: flex; gap: 2rem; font-size: 0.9rem;">
                                 <div>
-                                    <span style="color: var(--text-muted);">Start Date:</span>
+                                    <span style="color: var(--text-muted);">Tanggal Mulai:</span>
                                     <strong><?= date('M j, Y', strtotime($registration['start_date'])) ?></strong>
                                 </div>
                                 <div>
-                                    <span style="color: var(--text-muted);">Tournament Status:</span>
+                                    <span style="color: var(--text-muted);">Status Turnamen:</span>
                                     <span style="padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
                                           background: <?= $registration['tournament_status'] === 'upcoming' ? 'rgba(52, 152, 219, 0.2)' : 
                                                      ($registration['tournament_status'] === 'ongoing' ? 'rgba(46, 204, 113, 0.2)' : 
@@ -106,7 +106,7 @@
                             <div style="display: flex; gap: 0.5rem; flex-direction: column; align-items: flex-end;">
                                 <a href="<?= Router::url('tournaments/view/' . $registration['tournament_id']) ?>" 
                                    class="btn btn-sm" style="background: var(--bg-secondary);">
-                                    👁️ View Tournament
+                                    👁️ Lihat Turnamen
                                 </a>
                                 
                                 <?php 
@@ -127,7 +127,7 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
 <?php elseif ($tournamentStatus !== 'upcoming'): ?>
     <span style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
           background: rgba(149, 165, 166, 0.2); color: #95a5a6;">
-        Tournament Ended
+                Turnamen Selesai
     </span>
 <?php endif; ?>
                             </div>
@@ -139,12 +139,12 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
     <?php else: ?>
         <div class="card" style="text-align: center; padding: 3rem;">
             <div style="font-size: 4rem; margin-bottom: 1rem;">😴</div>
-            <h3 style="font-weight: 700; margin-bottom: 0.5rem;">No Registrations Yet</h3>
+            <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Belum Ada Pendaftaran</h3>
             <p style="color: var(--text-muted); margin-bottom: 2rem;">
-                You haven't registered for any tournaments yet.
+                Anda belum mendaftar untuk turnamen apapun.
             </p>
             <a href="<?= Router::url('tournaments') ?>" class="btn btn-primary">
-                Browse Tournaments
+                Telusuri Turnamen
             </a>
         </div>
     <?php endif; ?>
@@ -160,13 +160,13 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
         ?>
         
         <div class="card" style="margin-top: 2rem;">
-            <h3 style="font-weight: 800; margin-bottom: 1.5rem;">💰 Payment Summary</h3>
+            <h3 style="font-weight: 800; margin-bottom: 1.5rem;">💰 Ringkasan Pembayaran</h3>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
                 <div style="text-align: center;">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
                     <div style="font-size: 1.5rem; font-weight: 800;"><?= $totalRegistrations ?></div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Total Registrations</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Total Registrasi</div>
                 </div>
                 
                 <div style="text-align: center;">
@@ -174,7 +174,7 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
                     <div style="font-size: 1.5rem; font-weight: 800; color: #f39c12;">
                         <?= count($pendingPayments) ?>
                     </div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Pending Payments</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Pembayaran Tertunda</div>
                 </div>
                 
                 <div style="text-align: center;">
@@ -182,7 +182,7 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
                     <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">
                         Rp <?= number_format($totalPendingAmount, 0, ',', '.') ?>
                     </div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Total Due</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Total Yang Harus Dibayar</div>
                 </div>
                 
                 <div style="text-align: center;">
@@ -190,7 +190,7 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
                     <div style="font-size: 1.5rem; font-weight: 800; color: #27ae60;">
                         <?= $totalRegistrations - count($pendingPayments) ?>
                     </div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Completed Payments</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Pembayaran Selesai</div>
                 </div>
             </div>
 
@@ -198,7 +198,7 @@ $tournamentStatus = $registration['tournament_status'] ?? 'upcoming';
             <?php if (!empty($pendingPayments)): ?>
                 <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
                     <div style="font-weight: 600; margin-bottom: 1rem;">
-                        You have <?= count($pendingPayments) ?> pending payment<?= count($pendingPayments) > 1 ? 's' : '' ?>
+                        Kamu punya <?= count($pendingPayments) ?> pembayaran tertunda<?= count($pendingPayments) > 1 ? 's' : '' ?>
                     </div>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
                         <?php foreach ($pendingPayments as $pending): ?>

@@ -2,10 +2,10 @@
     <!-- Header -->
     <div style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
-            🏆 <span class="text-accent">Tournaments</span>
+            🏆 <span class="text-accent">Turnamen</span>
         </h1>
         <p style="color: var(--text-muted); font-weight: 500;">
-            Compete with the best and win amazing prizes
+            Bersainglah dengan yang terbaik dan menangkan hadiah menarik
         </p>
         
         <!-- My Registrations Button -->
@@ -13,7 +13,7 @@
             <div style="margin-top: 1.5rem;">
                 <a href="<?= Router::url('tournaments/my') ?>" class="btn" 
                    style="background: var(--bg-secondary); font-weight: 600;">
-                    📋 My Registrations
+                    📋 Registrasi Saya
                 </a>
             </div>
         <?php endif; ?>
@@ -42,7 +42,7 @@
     <?php if (!empty($activeTournaments)): ?>
         <div style="margin-bottom: 3rem;">
             <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>🔥</span> Active Tournaments
+                <span>🔥</span> Turnamen Aktif
             </h2>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;">
@@ -52,7 +52,7 @@
                             <div>
                                 <h3 style="font-weight: 800; margin-bottom: 0.5rem;"><?php echo $tournament['name']; ?></h3>
                                 <div style="color: var(--text-muted); font-size: 0.9rem;">
-                                    🏆 Prize Pool: Rp <?php echo number_format($tournament['prize_pool'], 0, ',', '.'); ?>
+                                    🏆 Hadiah Utama: Rp <?php echo number_format($tournament['prize_pool'], 0, ',', '.'); ?>
                                 </div>
                             </div>
                             <span style="padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
@@ -84,7 +84,7 @@
                             <div>
                                 <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;">Status</div>
                                 <div style="font-weight: 700; color: #e74c3c;">
-                                    In Progress
+                                    Sedang Berlangsung
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                         <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
                             <a href="<?php echo Router::url('tournaments/view/' . $tournament['id']); ?>" 
                                class="btn btn-primary" style="width: 100%; font-weight: 600;">
-                                🔥 View Tournament
+                                🔥 Lihat Turnamen
                             </a>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
     <!-- Upcoming Tournaments -->
     <div style="margin-bottom: 3rem;">
         <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span>📅</span> Upcoming Tournaments
+            <span>📅</span> Turnamen Mendatang
         </h2>
         
         <?php if (!empty($upcomingTournaments)): ?>
@@ -115,12 +115,12 @@
                             <div>
                                 <h3 style="font-weight: 800; margin-bottom: 0.5rem;"><?php echo $tournament['name']; ?></h3>
                                 <div style="color: var(--text-muted); font-size: 0.9rem;">
-                                    🏆 Prize Pool: Rp <?php echo number_format($tournament['prize_pool'], 0, ',', '.'); ?>
+                                    🏆 Hadiah Utama: Rp <?php echo number_format($tournament['prize_pool'], 0, ',', '.'); ?>
                                 </div>
                             </div>
                             <span style="padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
                                       background: rgba(52, 152, 219, 0.2); color: #3498db;">
-                                Upcoming
+                                Mendatang
                             </span>
                         </div>
                         
@@ -167,7 +167,7 @@
                         <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
                             <a href="<?php echo Router::url('tournaments/view/' . $tournament['id']); ?>" 
                                class="btn btn-primary" style="width: 100%; font-weight: 600;">
-                                🚀 Register Now
+                                🚀 Daftar Sekarang
                             </a>
                         </div>
                     </div>
@@ -176,11 +176,11 @@
         <?php else: ?>
             <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">😴</div>
-                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">No Upcoming Tournaments</h3>
-                <p>Check back later for new tournament announcements.</p>
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak Ada Turnamen Mendatang</h3>
+                <p>Periksa kembali nanti untuk pengumuman turnamen baru.</p>
                 <?php if (Auth::check() && Auth::isAdmin()): ?>
                     <a href="<?= Router::url('admin/tournaments/create') ?>" class="btn btn-primary" style="margin-top: 1rem;">
-                        ➕ Create Tournament
+                        ➕ Buat Turnamen
                     </a>
                 <?php endif; ?>
             </div>
@@ -189,48 +189,48 @@
 
     <!-- Tournament Info -->
     <div class="card">
-        <h2 style="font-weight: 800; margin-bottom: 1rem;">About Our Tournaments</h2>
+        <h2 style="font-weight: 800; margin-bottom: 1rem;">Tentang Turnamen Kami</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
             <div style="text-align: center;">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
-                <div style="font-weight: 700; margin-bottom: 0.5rem;">Competitive Play</div>
-                <div style="color: var(--text-muted);">Test your skills against the best players</div>
+                <div style="font-weight: 700; margin-bottom: 0.5rem;">Permainan Kompetitif</div>
+                <div style="color: var(--text-muted);">Uji keterampilan Anda melawan pemain terbaik</div>
             </div>
             <div style="text-align: center;">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
-                <div style="font-weight: 700; margin-bottom: 0.5rem;">Cash Prizes</div>
-                <div style="color: var(--text-muted);">Win amazing prize pools</div>
+                <div style="font-weight: 700; margin-bottom: 0.5rem;">Hadiah Uang Tunai</div>
+                <div style="color: var(--text-muted);">Menangkan hadiah menarik</div>
             </div>
             <div style="text-align: center;">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
-                <div style="font-weight: 700; margin-bottom: 0.5rem;">Trophies & Recognition</div>
-                <div style="color: var(--text-muted);">Become a champion</div>
+                <div style="font-weight: 700; margin-bottom: 0.5rem;">Piala & Penghargaan</div>
+                <div style="color: var(--text-muted);">Jadilah juara</div>
             </div>
             <div style="text-align: center;">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">👥</div>
-                <div style="font-weight: 700; margin-bottom: 0.5rem;">Community</div>
-                <div style="color: var(--text-muted);">Join our billiard community</div>
+                <div style="font-weight: 700; margin-bottom: 0.5rem;">Komunitas</div>
+                <div style="color: var(--text-muted);">Bergabunglah dengan komunitas billiard kami</div>
             </div>
         </div>
 
         <!-- Quick Actions -->
         <div style="border-top: 1px solid var(--border-color); margin-top: 2rem; padding-top: 2rem;">
-            <h3 style="font-weight: 800; margin-bottom: 1rem;">Quick Actions</h3>
+            <h3 style="font-weight: 800; margin-bottom: 1rem;">Aksi Cepat</h3>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                 <?php if (Auth::check()): ?>
                     <a href="<?= Router::url('tournaments/my') ?>" class="btn" style="background: var(--bg-secondary);">
-                        📋 My Registrations
+                        📋 Pendaftaran Saya
                     </a>
                 <?php endif; ?>
                 
                 <?php if (Auth::check() && Auth::isAdmin()): ?>
                     <a href="<?= Router::url('admin/tournaments') ?>" class="btn btn-primary">
-                        🛠️ Manage Tournaments
+                        🛠️ Kelola Turnamen
                     </a>
                 <?php endif; ?>
                 
                 <a href="<?= Router::url('booking') ?>" class="btn" style="background: var(--bg-secondary);">
-                    🎱 Book a Table
+                    🎱 Pesan Meja
                 </a>
             </div>
         </div>

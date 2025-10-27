@@ -3,12 +3,12 @@
     <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 2rem;">
         <div>
             <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
-                🏆 Tournament Management
+                🏆 Pengelolaan Turnamen
             </h1>
-            <p style="color: var(--text-muted);">Manage all tournaments and participants</p>
+            <p style="color: var(--text-muted);">Mengelola turnamen dan peserta</p>
         </div>
         <a href="<?= Router::url('admin/tournaments/create') ?>" class="btn btn-primary">
-            + Create Tournament
+            + Buat Turnamen
         </a>
     </div>
 
@@ -17,36 +17,36 @@
         <div class="card" style="text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
             <div style="font-size: 1.5rem; font-weight: 800;"><?= $stats['total_tournaments'] ?? 0 ?></div>
-            <div style="color: var(--text-muted);">Total Tournaments</div>
+            <div style="color: var(--text-muted);">Total Turnamen</div>
         </div>
         <div class="card" style="text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
             <div style="font-size: 1.5rem; font-weight: 800;"><?= $stats['active_tournaments'] ?? 0 ?></div>
-            <div style="color: var(--text-muted);">Active</div>
+            <div style="color: var(--text-muted);">Turnamen Aktif</div>
         </div>
         <div class="card" style="text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">👥</div>
             <div style="font-size: 1.5rem; font-weight: 800;"><?= $stats['tournament_registrations'] ?? 0 ?></div>
-            <div style="color: var(--text-muted);">Registrations</div>
+            <div style="color: var(--text-muted);">Peserta Turnamen</div>
         </div>
         <div class="card" style="text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
             <div style="font-size: 1.5rem; font-weight: 800;">Rp <?= number_format($stats['total_revenue'] ?? 0, 0, ',', '.') ?></div>
-            <div style="color: var(--text-muted);">Tournament Revenue</div>
+            <div style="color: var(--text-muted);">Total Pendapatan Turnamen</div>
         </div>
     </div>
 
     <!-- Tournaments Table -->
     <div class="card">
         <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 1.5rem;">
-            <h2 style="font-weight: 800;">All Tournaments</h2>
+            <h2 style="font-weight: 800;">Semua Tournaments</h2>
             <div style="display: flex; gap: 0.5rem;">
                 <select onchange="window.location.href = '<?= Router::url('admin/tournaments') ?>?status=' + this.value" 
                         style="padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 6px;">
-                    <option value="all" <?= $status === 'all' ? 'selected' : '' ?>>All Status</option>
-                    <option value="upcoming" <?= $status === 'upcoming' ? 'selected' : '' ?>>Upcoming</option>
-                    <option value="active" <?= $status === 'active' ? 'selected' : '' ?>>Active</option>
-                    <option value="completed" <?= $status === 'completed' ? 'selected' : '' ?>>Completed</option>
+                    <option value="all" <?= $status === 'all' ? 'selected' : '' ?>>Semua Semua</option>
+                    <option value="upcoming" <?= $status === 'upcoming' ? 'selected' : '' ?>>Akan Datang</option>
+                    <option value="active" <?= $status === 'active' ? 'selected' : '' ?>>Sedang Aktif</option>
+                    <option value="completed" <?= $status === 'completed' ? 'selected' : '' ?>>Sudah</option>
                 </select>
             </div>
         </div>
@@ -55,22 +55,22 @@
             <div style="overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
-                        <tr style="border-bottom: 2px solid var(--border-color);">
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Tournament</th>
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Type</th>
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Participants</th>
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Prize Pool</th>
+                        <tr style="border-bottom: 2px solid var(--border-color)">
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Turnamen</th>
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Jenis</th>
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Peserta</th>
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Total Hadiah</th>
                             <th style="padding: 1rem; text-align: left; font-weight: 700;">Status</th>
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Start Date</th>
-                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Actions</th>
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Tanggal Mulai</th>
+                            <th style="padding: 1rem; text-align: left; font-weight: 700;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($tournaments as $tournament): ?>
-                        <tr style="border-bottom: 1px solid var(--border-color);">
+                        <tr style="border-bottom: 1px solid var(--border-color)">
                             <td style="padding: 1rem;">
                                 <div style="font-weight: 700;"><?= htmlspecialchars($tournament['name']) ?></div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted);">
+                                <div style="font-size: 0.8rem; color: var(--text-muted)">
                                     Rp <?= number_format($tournament['entry_fee'], 0, ',', '.') ?> entry
                                 </div>
                             </td>
@@ -98,7 +98,7 @@
                             <td style="padding: 1rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <a href="<?= Router::url('admin/tournaments/participants/' . $tournament['id']) ?>" 
-                                       class="btn btn-sm" style="background: var(--bg-secondary);">
+                                       class="btn btn-sm" style="background: var(--bg-secondary)">
                                         👥
                                     </a>
                                     <a href="<?= Router::url('admin/tournaments/edit/' . $tournament['id']) ?>" 
@@ -121,12 +121,11 @@
         <?php else: ?>
             <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">😴</div>
-                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">No Tournaments Yet</h3>
-                <p>Create your first tournament to get started.</p>
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Tidak Ada Turnamen</h3>
+                <p>Create turnamen untuk memulai.</p>
                 <a href="<?= Router::url('admin/tournaments/create') ?>" class="btn btn-primary" style="margin-top: 1rem;">
-                    Create Tournament
+                    Buat Turnamen
                 </a>
             </div>
         <?php endif; ?>
     </div>
-</div>

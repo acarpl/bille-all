@@ -208,16 +208,16 @@
     <div class="register-container">
         <div class="logo">
             <h1>🎱 <span class="text-accent">Bille</span> Southside</h1>
-            <p>Create your account</p>
+            <p>Buat akun Anda</p>
         </div>
         
         <div class="benefits">
-            <h4>⭐ JOIN THE COMMUNITY</h4>
+            <h4>⭐ BERGABUNG DENGAN KOMUNITAS</h4>
             <ul>
-                <li>100 Welcome Loyalty Points</li>
-                <li>Exclusive Member-Only Promotions</li>
-                <li>Priority Tournament Registration</li>
-                <li>Digital Booking & Payments</li>
+                <li>100 Loyalty Points Selamat Datang</li>
+                <li>Promosi Eksklusif Khusus Member</li>
+                <li>Pendaftaran Tournament Prioritas</li>
+                <li>Booking & Pembayaran Digital</li>
             </ul>
         </div>
         
@@ -229,10 +229,10 @@
         
         <form method="POST">
             <div class="form-group">
-                <label for="name">FULL NAME *</label>
+                <label for="name">NAMA LENGKAP *</label>
                 <input type="text" id="name" name="name" 
                        value="<?php echo isset($old_input['name']) ? htmlspecialchars($old_input['name']) : ''; ?>" 
-                       placeholder="Enter your full name"
+                       placeholder="Masukkan nama lengkap Anda"
                        required>
                 <?php if (isset($errors['name'])): ?>
                     <div class="error">⚠️ <?php echo $errors['name']; ?></div>
@@ -240,10 +240,10 @@
             </div>
             
             <div class="form-group">
-                <label for="email">EMAIL ADDRESS *</label>
+                <label for="email">ALAMAT EMAIL *</label>
                 <input type="email" id="email" name="email" 
                        value="<?php echo isset($old_input['email']) ? htmlspecialchars($old_input['email']) : ''; ?>" 
-                       placeholder="Enter your email"
+                       placeholder="Masukan alamat email Anda"
                        required>
                 <?php if (isset($errors['email'])): ?>
                     <div class="error">⚠️ <?php echo $errors['email']; ?></div>
@@ -251,7 +251,7 @@
             </div>
             
             <div class="form-group">
-                <label for="phone">PHONE NUMBER <span class="optional">(Optional)</span></label>
+                <label for="phone">NOMOR TELEPON <span class="optional">(Opsional)</span></label>
                 <input type="tel" id="phone" name="phone" 
                        value="<?php echo isset($old_input['phone']) ? htmlspecialchars($old_input['phone']) : ''; ?>"
                        placeholder="081234567890">
@@ -261,16 +261,16 @@
             </div>
             
             <div class="form-group">
-                <label for="student_id">STUDENT ID <span class="optional">(For Student Promo)</span></label>
+                <label for="student_id">ID PELAJAR <span class="optional">(Untuk Promo Khusus Pelajar)</span></label>
                 <input type="text" id="student_id" name="student_id" 
                        value="<?php echo isset($old_input['student_id']) ? htmlspecialchars($old_input['student_id']) : ''; ?>"
-                       placeholder="Enter your student ID">
+                       placeholder="Masukan ID pelajar Anda">
             </div>
             
             <div class="form-group">
-                <label for="password">PASSWORD *</label>
+                <label for="password">KATA SANDI *</label>
                 <input type="password" id="password" name="password" 
-                       placeholder="Create a password (min. 6 characters)"
+                       placeholder="Buat kata sandi (min. 6 karakter)"
                        required>
                 <?php if (isset($errors['password'])): ?>
                     <div class="error">⚠️ <?php echo $errors['password']; ?></div>
@@ -278,20 +278,20 @@
             </div>
             
             <div class="form-group">
-                <label for="password_confirm">CONFIRM PASSWORD *</label>
+                <label for="password_confirm">KONFIRMASI KATA SANDI *</label>
                 <input type="password" id="password_confirm" name="password_confirm" 
-                       placeholder="Confirm your password"
+                       placeholder="Konfirmasi kata sandi Anda"
                        required>
                 <?php if (isset($errors['password_confirm'])): ?>
                     <div class="error">⚠️ <?php echo $errors['password_confirm']; ?></div>
                 <?php endif; ?>
             </div>
             
-            <button type="submit" class="btn">🚀 Create Account</button>
+            <button type="submit" class="btn">🚀 Buat Akun</button>
         </form>
         
         <div class="links">
-            <p>Already have an account? <a href="<?php echo Router::url('auth/login'); ?>">Sign in here</a></p>
+            <p>Sudah memiliki akun? <a href="<?php echo Router::url('auth/login'); ?>">Sign in here</a></p>
         </div>
     </div>
 

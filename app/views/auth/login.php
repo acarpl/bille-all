@@ -189,7 +189,7 @@
     <div class="login-container">
         <div class="logo">
             <h1>🎱 <span class="text-accent">Bille</span> Southside</h1>
-            <p>Sign in to your account</p>
+            <p>Masuk ke akun Anda</p>
         </div>
         
         <?php if (isset($errors['general'])): ?>
@@ -200,10 +200,10 @@
         
         <form method="POST">
             <div class="form-group">
-                <label for="email">EMAIL ADDRESS</label>
+                <label for="email">ALAMAT EMAIL</label>
                 <input type="email" id="email" name="email" 
                        value="<?php echo isset($old_input['email']) ? htmlspecialchars($old_input['email']) : ''; ?>" 
-                       placeholder="Enter your email"
+                       placeholder="Masukkan alamat email Anda"
                        required>
                 <?php if (isset($errors['email'])): ?>
                     <div class="error">⚠️ <?php echo $errors['email']; ?></div>
@@ -211,22 +211,22 @@
             </div>
             
             <div class="form-group">
-                <label for="password">PASSWORD</label>
+                <label for="password">KATA SANDI</label>
                 <input type="password" id="password" name="password" 
-                       placeholder="Enter your password"
+                       placeholder="Masukan kata sandi Anda"
                        required>
                 <?php if (isset($errors['password'])): ?>
                     <div class="error">⚠️ <?php echo $errors['password']; ?></div>
                 <?php endif; ?>
             </div>
             
-            <button type="submit" class="btn">🎯 Sign In</button>
+            <button type="submit" class="btn">🎯 Login</button>
         </form>
         
-        <div class="divider">New to Southside?</div>
+        <div class="divider">Baru di Southside?</div>
         
         <div class="links">
-            <p>Don't have an account? <a href="<?php echo Router::url('auth/register'); ?>">Create account</a></p>
+            <p>Belum memiliki akun? <a href="<?php echo Router::url('auth/register'); ?>">Buat akun</a></p>
         </div>
     </div>
 

@@ -2,12 +2,12 @@
 <div style="padding: 2rem 0;">
     <div style="margin-bottom: 2rem;">
         <a href="<?php echo Router::url('admin/products'); ?>" class="btn btn-outline" style="margin-bottom: 1rem;">
-            ← Back to Products
+            ← Kembali ke Daftar Produk
         </a>
         <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
-            Edit Product
+            Edit Produk
         </h1>
-        <p style="color: var(--text-muted);">Update product information</p>
+        <p style="color: var(--text-muted);">Perbarui informasi produk</p>
     </div>
 
     <!-- Flash Messages -->
@@ -29,24 +29,24 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <!-- Basic Information -->
                 <div>
-                    <h3 style="font-weight: 700; margin-bottom: 1rem;">Basic Information</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 1rem;">Informasi Dasar</h3>
                     
                     <div class="form-group">
-                        <label for="name">Product Name *</label>
-                        <input type="text" id="name" name="name" 
-                               value="<?php echo htmlspecialchars($_SESSION['old_input']['name'] ?? $product['name']); ?>" 
+                        <label for="name">Nama Produk *</label>
+                        <input type="text" id="name" name="name"
+                               value="<?php echo htmlspecialchars($_SESSION['old_input']['name'] ?? $product['name']); ?>"
                                required style="width: 100%;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="category">Category *</label>
+                        <label for="category">Kategori *</label>
                         <select id="category" name="category" required style="width: 100%;">
-                            <option value="">Select Category</option>
+                            <option value="">Pilih Kategori</option>
                             <option value="food" <?php echo ($_SESSION['old_input']['category'] ?? $product['category']) === 'food' ? 'selected' : ''; ?>>
-                                🍔 Food
+                                🍔 Makanan
                             </option>
                             <option value="beverage" <?php echo ($_SESSION['old_input']['category'] ?? $product['category']) === 'beverage' ? 'selected' : ''; ?>>
-                                🥤 Beverage
+                                🥤 Minuman
                             </option>
                             <option value="snack" <?php echo ($_SESSION['old_input']['category'] ?? $product['category']) === 'snack' ? 'selected' : ''; ?>>
                                 🍿 Snack
@@ -58,14 +58,14 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="price">Price (Rp) *</label>
+                        <label for="price">Harga (Rp) *</label>
                         <input type="number" id="price" name="price" 
                                value="<?php echo $_SESSION['old_input']['price'] ?? $product['price']; ?>" 
                                min="0" step="1000" required style="width: 100%;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="stock">Stock *</label>
+                        <label for="stock">Stok *</label>
                         <input type="number" id="stock" name="stock" 
                                value="<?php echo $_SESSION['old_input']['stock'] ?? $product['stock']; ?>" 
                                min="0" required style="width: 100%;">
@@ -75,38 +75,38 @@
                         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
                             <input type="checkbox" name="is_available" value="1" 
                                    <?php echo ($_SESSION['old_input']['is_available'] ?? $product['is_available']) ? 'checked' : ''; ?>>
-                            <span>Product is available for sale</span>
+                            <span>Produk tersedia untuk dijual</span>
                         </label>
                     </div>
                 </div>
                 
                 <!-- Additional Information -->
                 <div>
-                    <h3 style="font-weight: 700; margin-bottom: 1rem;">Additional Information</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 1rem;">Informasi Tambahan</h3>
                     
                     <!-- Current Image Preview -->
                     <?php if ($product['image']): ?>
                         <div class="form-group">
-                            <label>Current Image</label>
+                            <label>Gambar Saat Ini</label>
                             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                                 <img src="<?php echo Router::url('public/assets/images/products/' . $product['image']); ?>"
                                      alt="<?php echo htmlspecialchars($product['name']); ?>"
                                      style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
                                 <div>
-                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Current Image</div>
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Gambar Saat Ini</div>
                                     <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
                                         <input type="checkbox" name="remove_image" value="1">
-                                        <span style="color: var(--accent);">Remove image</span>
+                                        <span style="color: var(--accent);">Hapus gambar</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
                     <?php else: ?>
                         <div class="form-group">
-                            <label>Current Image</label>
+                            <label>Gambar Saat Ini</label>
                             <div style="padding: 2rem; text-align: center; background: var(--card-bg); border-radius: 8px; border: 2px dashed var(--border-color);">
                                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">📷</div>
-                                <div style="color: var(--text-muted);">No image uploaded</div>
+                                <div style="color: var(--text-muted);">Tidak ada gambar yang diunggah</div>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -117,15 +117,15 @@
                                accept="image/jpeg,image/png,image/gif,image/webp"
                                style="width: 100%;">
                         <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
-                            Supported formats: JPEG, PNG, GIF, WebP (Max: 2MB)
+                            Format yang didukung: JPEG, PNG, GIF, WebP (Maks: 2MB)
                             <?php if ($product['image']): ?>
-                                <br>Upload new image to replace the current one.
+                                <br>Unggah gambar baru.
                             <?php endif; ?>
                         </small>
                     </div>
                     
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">Deskripsi</label>
                         <textarea id="description" name="description" 
                                   style="width: 100%; height: 120px; resize: vertical;"
                                   placeholder="Enter product description..."><?php echo htmlspecialchars($_SESSION['old_input']['description'] ?? $product['description'] ?? ''); ?></textarea>
@@ -135,20 +135,20 @@
             
             <!-- Product Stats -->
             <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
-                <h4 style="font-weight: 700; margin-bottom: 1rem;">Product Information</h4>
+                <h4 style="font-weight: 700; margin-bottom: 1rem;">Informasi Produk</h4>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                     <div>
-                        <div style="color: var(--text-muted); font-size: 0.9rem;">Product ID</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">ID Produk</div>
                         <div style="font-weight: 600;">#<?php echo $product['id']; ?></div>
                     </div>
                     <div>
-                        <div style="color: var(--text-muted); font-size: 0.9rem;">Created</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">Dibuat</div>
                         <div style="font-weight: 600;">
                             <?php echo date('M j, Y', strtotime($product['created_at'])); ?>
                         </div>
                     </div>
                     <div>
-                        <div style="color: var(--text-muted); font-size: 0.9rem;">Last Updated</div>
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">Terakhir Diperbarui</div>
                         <div style="font-weight: 600;">
                             <?php echo date('M j, Y g:i A', strtotime($product['updated_at'] ?? $product['created_at'])); ?>
                         </div>
@@ -165,19 +165,19 @@
             </div>
             
             <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1.5rem;">
-                <button type="submit" class="btn btn-primary">💾 Update Product</button>
-                <a href="<?php echo Router::url('admin/products'); ?>" class="btn btn-outline">Cancel</a>
-                
+                <button type="submit" class="btn btn-primary">💾 Perbarui Produk</button>
+                <a href="<?php echo Router::url('admin/products'); ?>" class="btn btn-outline">Batal</a>
+
                 <!-- Danger Zone -->
                 <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                    <h4 style="font-weight: 700; color: var(--accent); margin-bottom: 1rem;">Danger Zone</h4>
+                    <h4 style="font-weight: 700; color: var(--accent); margin-bottom: 1rem;">Zona Berbahaya</h4>
                     <p style="color: var(--text-muted); margin-bottom: 1rem;">
-                        Once you delete a product, there is no going back. Please be certain.
+                        Setelah Anda menghapus produk, tidak ada cara untuk mengembalikannya. Harap pastikan.
                     </p>
                     <form method="POST" action="<?php echo Router::url('admin/products/delete/' . $product['id']); ?>" 
-                          onsubmit="return confirm('Are you sure you want to delete this product? This action cannot be undone.')"
+                          onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini? Tindakan ini tidak dapat dibatalkan.')"
                           style="display: inline-block;">
-                        <button type="submit" class="btn btn-error">🗑️ Delete Product</button>
+                        <button type="submit" class="btn btn-error">🗑️ Hapus Produk</button>
                     </form>
                 </div>
             </div>
