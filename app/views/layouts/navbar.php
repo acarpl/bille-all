@@ -583,7 +583,7 @@ function googleTranslateElementInit() {
     // Initialize only ONE element
     if (document.getElementById('google_translate_element')) {
         new google.translate.TranslateElement({
-            pageLanguage: 'en',
+            pageLanguage: 'id',
             includedLanguages: 'id,zh-CN,ja,ko,ar,es,fr,de,ru',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false

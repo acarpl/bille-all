@@ -42,17 +42,25 @@
                 <?php foreach ($groupedProducts['food'] ?? [] as $product): ?>
                     <div class="product-card" data-category="food">
                         <div class="product-image">
-                            <?php if (!empty($product['image'])): ?>
-                                <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-                                     alt="<?php echo htmlspecialchars($product['name']); ?>"
-                                     style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px;">
-                            <?php else: ?>
-                                <div style="width: 100%; height: 120px; background: var(--card-bg); 
-                                            border-radius: 8px; display: flex; align-items: center; 
-                                            justify-content: center; font-size: 2rem;">
-                                    🍔
-                                </div>
-                            <?php endif; ?>
+                            <?php if ($product['image']): ?>
+                                            <img src="<?php echo BASE_URL; ?>/public/assets/images/products/<?php echo htmlspecialchars($product['image']); ?>"
+                                                 alt="<?php echo htmlspecialchars($product['name']); ?>"
+                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                                        <?php else: ?>
+                                            <div style="width: 50px; height: 50px; background: var(--card-bg); 
+                                                        border-radius: 8px; display: flex; align-items: center; 
+                                                        justify-content: center; font-size: 1.2rem;">
+                                                <?php 
+                                                $icons = [
+                                                    'food' => '🍔',
+                                                    'beverage' => '🥤',
+                                                    'snack' => '🍿',
+                                                    'merchandise' => '👕'
+                                                ];
+                                                echo $icons[$product['category']] ?? '📦';
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
                         </div>
                         
                         <div class="product-info">
@@ -109,17 +117,25 @@
                 <?php foreach ($groupedProducts['beverage'] ?? [] as $product): ?>
                     <div class="product-card" data-category="beverage">
                         <div class="product-image">
-                            <?php if (!empty($product['image'])): ?>
-                                <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-                                     alt="<?php echo htmlspecialchars($product['name']); ?>"
-                                     style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px;">
-                            <?php else: ?>
-                                <div style="width: 100%; height: 120px; background: var(--card-bg); 
-                                            border-radius: 8px; display: flex; align-items: center; 
-                                            justify-content: center; font-size: 2rem;">
-                                    🥤
-                                </div>
-                            <?php endif; ?>
+                            <?php if ($product['image']): ?>
+                                            <img src="<?php echo BASE_URL; ?>/public/assets/images/products/<?php echo htmlspecialchars($product['image']); ?>"
+                                                 alt="<?php echo htmlspecialchars($product['name']); ?>"
+                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                                        <?php else: ?>
+                                            <div style="width: 50px; height: 50px; background: var(--card-bg); 
+                                                        border-radius: 8px; display: flex; align-items: center; 
+                                                        justify-content: center; font-size: 1.2rem;">
+                                                <?php 
+                                                $icons = [
+                                                    'food' => '🍔',
+                                                    'beverage' => '🥤',
+                                                    'snack' => '🍿',
+                                                    'merchandise' => '👕'
+                                                ];
+                                                echo $icons[$product['category']] ?? '📦';
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
                         </div>
                         
                         <div class="product-info">
@@ -176,17 +192,25 @@
                 <?php foreach ($groupedProducts['snack'] ?? [] as $product): ?>
                     <div class="product-card" data-category="snack">
                         <div class="product-image">
-                            <?php if (!empty($product['image'])): ?>
-                                <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-                                     alt="<?php echo htmlspecialchars($product['name']); ?>"
-                                     style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px;">
-                            <?php else: ?>
-                                <div style="width: 100%; height: 120px; background: var(--card-bg); 
-                                            border-radius: 8px; display: flex; align-items: center; 
-                                            justify-content: center; font-size: 2rem;">
-                                    🍿
-                                </div>
-                            <?php endif; ?>
+                            <?php if ($product['image']): ?>
+                                            <img src="<?php echo BASE_URL; ?>/public/assets/images/products/<?php echo htmlspecialchars($product['image']); ?>"
+                                                 alt="<?php echo htmlspecialchars($product['name']); ?>"
+                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                                        <?php else: ?>
+                                            <div style="width: 50px; height: 50px; background: var(--card-bg); 
+                                                        border-radius: 8px; display: flex; align-items: center; 
+                                                        justify-content: center; font-size: 1.2rem;">
+                                                <?php 
+                                                $icons = [
+                                                    'food' => '🍔',
+                                                    'beverage' => '🥤',
+                                                    'snack' => '🍿',
+                                                    'merchandise' => '👕'
+                                                ];
+                                                echo $icons[$product['category']] ?? '📦';
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
                         </div>
                         
                         <div class="product-info">
@@ -243,17 +267,25 @@
                 <?php foreach ($groupedProducts['merchandise'] ?? [] as $product): ?>
                     <div class="product-card" data-category="merchandise">
                         <div class="product-image">
-                            <?php if (!empty($product['image'])): ?>
-                                <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-                                     alt="<?php echo htmlspecialchars($product['name']); ?>"
-                                     style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px;">
-                            <?php else: ?>
-                                <div style="width: 100%; height: 120px; background: var(--card-bg); 
-                                            border-radius: 8px; display: flex; align-items: center; 
-                                            justify-content: center; font-size: 2rem;">
-                                    👕
-                                </div>
-                            <?php endif; ?>
+                            <?php if ($product['image']): ?>
+                                            <img src="<?php echo BASE_URL; ?>/public/assets/images/products/<?php echo htmlspecialchars($product['image']); ?>"
+                                                 alt="<?php echo htmlspecialchars($product['name']); ?>"
+                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                                        <?php else: ?>
+                                            <div style="width: 50px; height: 50px; background: var(--card-bg); 
+                                                        border-radius: 8px; display: flex; align-items: center; 
+                                                        justify-content: center; font-size: 1.2rem;">
+                                                <?php 
+                                                $icons = [
+                                                    'food' => '🍔',
+                                                    'beverage' => '🥤',
+                                                    'snack' => '🍿',
+                                                    'merchandise' => '👕'
+                                                ];
+                                                echo $icons[$product['category']] ?? '📦';
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
                         </div>
                         
                         <div class="product-info">

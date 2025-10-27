@@ -127,6 +127,10 @@ class Router {
             'payment/instructions/(.+)' => 'PaymentController@paymentInstructions/$1',
             'payment/upload-proof' => 'PaymentController@uploadProof',
             'payment/upload/(.+)' => 'PaymentController@uploadPage/$1',
+
+
+            // Billing routes
+            'billings/live-tables' => 'BillingController@userBillingView',
                 
             // API routes
             'api/tables/status' => 'ApiController@tableStatus',

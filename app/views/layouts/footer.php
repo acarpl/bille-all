@@ -32,7 +32,7 @@
                     <div style="color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem; font-weight: 500;">
                         <p>📍 GARDEN BOULEVARD M23/233-235 CITRA RAYA TANGERANG</p>
                         <p>📞 62 851-2948-2769</p>
-                        <p>🕒 Open daily 12:00 - 03:00</p>
+                        <p>🕒 Buka Setiap Hari 12:00 - 03:00</p>
                     </div>
                 </div>
             </div>
