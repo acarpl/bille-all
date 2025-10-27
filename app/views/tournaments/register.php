@@ -4,17 +4,17 @@
             <a href="<?= Router::url('tournaments/view/' . $data['tournament']['id']) ?>" 
                style="display: inline-flex; align-items: center; gap: 0.5rem; 
                       color: var(--text-muted); font-weight: 600; text-decoration: none;">
-                ← Back to Tournament
+                ← Kembali ke Turnamen
             </a>
         </div>
 
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 3rem;">
             <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
-                🚀 Register for Tournament
+                🚀 Daftar untuk Turnamen
             </h1>
             <p style="color: var(--text-muted); font-weight: 500;">
-                Complete your registration for <?= $data['tournament']['name'] ?>
+                Lengkapi pendaftaran Anda untuk <?= $data['tournament']['name'] ?>
             </p>
         </div>
 
@@ -43,7 +43,7 @@
             <!-- Left Column - Registration Form -->
             <div class="card">
                 <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📝</span> Registration Form
+                    <span>📝</span> Formulir Pendaftaran
                 </h2>
 
                 <form method="POST" action="<?= Router::url('tournaments/register') ?>">
@@ -52,12 +52,12 @@
                     <!-- Team Information -->
                     <div style="margin-bottom: 2rem;">
                         <h3 style="font-weight: 700; margin-bottom: 1rem; color: var(--accent);">
-                            Team Information
+                            Informasi Tim
                         </h3>
                         
                         <div style="margin-bottom: 1.5rem;">
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
-                                Team Name *
+                                Nama Tim *
                             </label>
                             <input type="text" name="team_name" required 
                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); 
@@ -65,13 +65,13 @@
                                    placeholder="Enter your team name"
                                    value="<?= $_POST['team_name'] ?? '' ?>">
                             <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
-                                Choose a creative name for your team
+                               Pilih nama yang kreatif untuk tim Anda!
                             </div>
                         </div>
 
                         <div style="margin-bottom: 1.5rem;">
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
-                                Number of Players *
+                                Jumlah Pemain *
                             </label>
                             <select name="player_count" required 
                                     style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); 
@@ -83,7 +83,7 @@
                                 <?php endfor; ?>
                             </select>
                             <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
-                                Select how many players in your team
+                                Pilih berapa banyak pemain di tim Anda
                             </div>
                         </div>
                     </div>
@@ -91,31 +91,31 @@
                     <!-- Payment Information -->
                     <div style="margin-bottom: 2rem;">
                         <h3 style="font-weight: 700; margin-bottom: 1rem; color: var(--accent);">
-                            Payment Summary
+                            Ringkasan Pembayaran
                         </h3>
                         
                         <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px;">
                             <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
-                                <span>Entry Fee (per player):</span>
+                                <span>Biaya Masuk (per pemain):</span>
                                 <span>Rp <?= number_format($data['tournament']['entry_fee'], 0, ',', '.') ?></span>
                             </div>
                             <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
-                                <span>Number of Players:</span>
+                                <span>Jumlah Pemain:</span>
                                 <span id="player-count-display">1</span>
                             </div>
                             <div style="border-top: 1px solid var(--border-color); padding-top: 0.5rem; 
                                       display: flex; justify-content: between; font-weight: 700; font-size: 1.1rem;">
-                                <span>Total Amount:</span>
+                                <span>Total Biaya:</span>
                                 <span id="total-amount">Rp <?= number_format($data['tournament']['entry_fee'], 0, ',', '.') ?></span>
                             </div>
                         </div>
                         
                         <div style="margin-top: 1rem; padding: 1rem; background: rgba(52, 152, 219, 0.1); 
                                     border-radius: 8px; border-left: 4px solid #3498db;">
-                            <div style="font-weight: 600; margin-bottom: 0.5rem;">💡 Payment Instructions</div>
+                            <div style="font-weight: 600; margin-bottom: 0.5rem;">💡 Petunjuk Pembayaran</div>
                             <div style="font-size: 0.9rem;">
-                                Payment can be made at the venue before the tournament starts. 
-                                Please bring exact amount for smooth registration.
+                                Pembayaran dapat dilakukan di lokasi sebelum turnamen dimulai. 
+                                Harap bawa jumlah yang tepat untuk kelancaran pendaftaran.
                             </div>
                         </div>
                     </div>
@@ -126,8 +126,8 @@
                             <input type="checkbox" id="terms" name="terms" required 
                                    style="margin-top: 0.25rem;">
                             <label for="terms" style="font-size: 0.9rem;">
-                                I agree to the <a href="#" style="color: var(--accent);">tournament rules and terms</a>. 
-                                I understand that the entry fee is non-refundable.
+                                Saya setuju dengan <a href="#" style="color: var(--accent);">aturan dan ketentuan turnamen</a>. 
+                                Saya mengerti bahwa biaya pendaftaran tidak dapat dikembalikan.
                             </label>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                             style="width: 100%; padding: 1rem; background: var(--accent); color: white; 
                                    border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; 
                                    cursor: pointer; transition: background 0.3s ease;">
-                        🎯 Complete Registration
+                        🎯 Selesaikan Pendaftaran
                     </button>
                 </form>
             </div>
@@ -147,7 +147,7 @@
                 <!-- Tournament Card -->
                 <div class="card" style="position: sticky; top: 2rem;">
                     <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span>🏆</span> Tournament Summary
+                        <span>🏆</span> Ringkasan Turnamen
                     </h2>
                     
                     <div style="text-align: center; margin-bottom: 1.5rem;">
@@ -156,33 +156,33 @@
                             <?= htmlspecialchars($data['tournament']['name']) ?>
                         </h3>
                         <div style="color: var(--text-muted);">
-                            <?= ucfirst($data['tournament']['type']) ?> Tournament
+                            <?= ucfirst($data['tournament']['type']) ?> Turnamen
                         </div>
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
                         <div style="display: flex; justify-content: between;">
-                            <span style="color: var(--text-muted);">Prize Pool:</span>
+                            <span style="color: var(--text-muted);">Hadiah Utama:</span>
                             <span style="font-weight: 700;">
                                 Rp <?= number_format($data['tournament']['prize_pool'], 0, ',', '.') ?>
                             </span>
                         </div>
                         <div style="display: flex; justify-content: between;">
-                            <span style="color: var(--text-muted);">Start Date:</span>
+                            <span style="color: var(--text-muted);">Tanggal Mulai:</span>
                             <span style="font-weight: 700;">
                                 <?= date('M j, Y', strtotime($data['tournament']['start_date'])) ?>
                             </span>
                         </div>
                         <div style="display: flex; justify-content: between;">
-                            <span style="color: var(--text-muted);">Register By:</span>
+                            <span style="color: var(--text-muted);">Registrasi Sebelum:</span>
                             <span style="font-weight: 700;">
                                 <?= date('M j, Y', strtotime($data['tournament']['registration_deadline'])) ?>
                             </span>
                         </div>
                         <div style="display: flex; justify-content: between;">
-                            <span style="color: var(--text-muted);">Available Spots:</span>
+                            <span style="color: var(--text-muted);">Tempat Tersedia:</span>
                             <span style="font-weight: 700;">
-                                <?= $data['tournament']['max_participants'] - $data['current_participants'] ?> left
+                                <?= $data['tournament']['max_participants'] - $data['current_participants'] ?> tersisa
                             </span>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                     <!-- Rules Preview -->
                     <?php if (!empty($data['tournament']['rules'])): ?>
                     <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">📜 Tournament Rules</h4>
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">📜 Aturan Turnamen</h4>
                         <div style="font-size: 0.9rem; color: var(--text-muted); max-height: 150px; overflow-y: auto;">
                             <?= nl2br(htmlspecialchars(substr($data['tournament']['rules'], 0, 200))) ?>...
                         </div>

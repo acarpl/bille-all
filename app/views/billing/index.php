@@ -3,25 +3,25 @@
     <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 2rem;">
         <div>
             <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
-                My Billings
+                Tagihan Saya
             </h1>
-            <p style="color: var(--text-muted);">Manage your billings and payments</p>
+            <p style="color: var(--text-muted);">Kelola tagihan dan pembayaran</p>
         </div>
         <a href="<?php echo BASE_URL; ?>/booking" class="btn btn-primary">
-            🎱 New Booking
+            🎱 Pemesanan Baru
         </a>
     </div>
 
     <!-- Flash Messages -->
     <?php if (isset($_SESSION['success'])): ?>
         <div class="alert alert-success">
-            ✅ <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+            <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
         </div>
     <?php endif; ?>
     
     <?php if (isset($_SESSION['error'])): ?>
         <div class="alert alert-error">
-            ❌ <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
         </div>
     <?php endif; ?>
 
@@ -37,7 +37,7 @@
                         <!-- Header -->
                         <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 1rem;">
                             <div>
-                                <h3 style="font-weight: 700; margin: 0 0 0.25rem 0; color: var(--primary-color);">
+                                <h3 style="font-weight: 700; margin: 0 0 0.25rem 0; color: var(--primary-color)">
                                     <?php echo htmlspecialchars($billing['billing_code']); ?>
                                 </h3>
                                 <span class="badge badge-<?php 
@@ -48,11 +48,11 @@
                                 </span>
                             </div>
                             <div style="text-align: right;">
-                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-color);">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-color)">
                                     Rp <?php echo number_format($billing['amount'], 0, ',', '.'); ?>
                                 </div>
-                                <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Due: <?php echo date('d/m/Y', strtotime($billing['due_date'])); ?>
+                                <div style="font-size: 0.9rem; color: var(--text-muted)">
+                                    Jatuh Tempo: <?php echo date('d/m/Y', strtotime($billing['due_date'])); ?>
                                 </div>
                             </div>
                         </div>
@@ -61,16 +61,16 @@
                         <?php if ($billing['booking_code']): ?>
                         <div style="margin-bottom: 1rem; padding: 1rem; background: var(--card-bg); border-radius: 8px;">
                             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                                <span style="font-size: 1.2rem;">🎱</span>
+                                <span style="font-size: 1.2rem;">&#x1F3F7;</span>
                                 <strong><?php echo htmlspecialchars($billing['booking_code']); ?></strong>
                             </div>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem;">
                                 <div>
-                                    <div style="color: var(--text-muted);">Table</div>
+                                    <div style="color: var(--text-muted);">Meja</div>
                                     <div style="font-weight: 600;"><?php echo $billing['table_number']; ?></div>
                                 </div>
                                 <div>
-                                    <div style="color: var(--text-muted);">Date & Time</div>
+                                    <div style="color: var(--text-muted);">Tanggal & Waktu</div>
                                     <div style="font-weight: 600;">
                                         <?php echo date('d/m/Y', strtotime($billing['play_date'])); ?><br>
                                         <?php echo $billing['play_time']; ?>
@@ -82,8 +82,8 @@
 
                         <!-- Notes -->
                         <?php if (isset($billing['notes'])): ?>
-                        <div style="margin-bottom: 1rem; padding: 0.75rem; background: #f8f9fa; border-radius: 6px; border-left: 3px solid var(--primary-color);">
-                            <div style="font-size: 0.9rem; color: var(--text-muted);">
+                        <div style="margin-bottom: 1rem; padding: 0.75rem; background: #f8f9fa; border-radius: 6px; border-left: 3px solid var(--primary-color)">
+                            <div style="font-size: 0.9rem; color: var(--text-muted)">
                                 <?php echo htmlspecialchars($billing['notes']); ?>
                             </div>
                         </div>
@@ -93,16 +93,16 @@
                         <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem;">
                             <a href="<?php echo BASE_URL; ?>/billing/view/<?php echo $billing['id']; ?>" 
                                class="btn btn-sm btn-outline" style="flex: 1;">
-                                👁️ View Details
+                                &#x1F3F7; Lihat Detail
                             </a>
                             <?php if ($billing['status'] == 'pending'): ?>
                                 <a href="<?php echo BASE_URL; ?>/payment/create/<?php echo $billing['id']; ?>" 
                                    class="btn btn-sm btn-success" style="flex: 1;">
-                                    💳 Pay Now
+                                    &#x1F9F8; Bayar Sekarang
                                 </a>
                             <?php else: ?>
                                 <button class="btn btn-sm btn-success" style="flex: 1;" disabled>
-                                    ✅ Paid
+                                    &#x2713; Sudah Dibayar
                                 </button>
                             <?php endif; ?>
                         </div>
@@ -112,11 +112,11 @@
         </div>
     <?php else: ?>
         <div class="card" style="text-align: center; padding: 3rem;">
-            <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
-            <h3 style="margin-bottom: 0.5rem;">No Billings Found</h3>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">You don't have any billings yet.</p>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">&#x1F3F7;</div>
+            <h3 style="margin-bottom: 0.5rem;">Tidak Ada Tagihan</h3>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Anda tidak memiliki tagihan.</p>
             <a href="<?php echo BASE_URL; ?>/booking" class="btn btn-primary">
-                🎱 Make Your First Booking
+                Buat Tagihan Baru
             </a>
         </div>
     <?php endif; ?>
@@ -126,14 +126,14 @@
     <div style="margin-top: 2rem;">
         <div class="card">
             <div style="padding: 1.5rem;">
-                <h4 style="margin-bottom: 1rem;">Billing Summary</h4>
+                <h4 style="margin-bottom: 1rem;">Ringkasan Tagihan</h4>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                     <?php
                     $stats = [
-                        'total' => ['label' => 'Total Billings', 'value' => count($data['billings']), 'icon' => '📊', 'color' => '#2196f3'],
-                        'pending' => ['label' => 'Pending Payment', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'pending'), 'icon' => '⏳', 'color' => '#ff9800'],
-                        'paid' => ['label' => 'Paid', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'paid'), 'icon' => '✅', 'color' => '#4caf50'],
-                        'overdue' => ['label' => 'Overdue', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'overdue'), 'icon' => '⚠️', 'color' => '#f44336']
+                        'total' => ['label' => 'Total Tagihan', 'value' => count($data['billings']), 'icon' => '&#x1F3F7;', 'color' => '#2196f3'],
+                        'pending' => ['label' => 'Tagihan Belum Dibayar', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'pending'), 'icon' => '&#x1F522;', 'color' => '#ff9800'],
+                        'paid' => ['label' => 'Tagihan Sudah Dibayar', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'paid'), 'icon' => '&#x2713;', 'color' => '#4caf50'],
+                        'overdue' => ['label' => 'Tagihan Terlambat', 'value' => array_filter($data['billings'], fn($b) => $b['status'] == 'overdue'), 'icon' => '&#x1F552;', 'color' => '#f44336']
                     ];
                     ?>
                     
@@ -152,7 +152,6 @@
     </div>
     <?php endif; ?>
 </div>
-
 <style>
 .badge {
     padding: 0.25rem 0.75rem;

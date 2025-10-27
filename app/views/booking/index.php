@@ -1,10 +1,10 @@
 <div style="padding: 2rem 0;">
     <div style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
-            Book Your <span class="text-accent">Table</span>
+            Pesan <span class="text-accent">Meja mu</span>
         </h1>
         <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 500;">
-            Reserve your billiard table and get ready for an amazing game
+y            Reserve your billiard table and get ready for an amazing game
         </p>
     </div>
 
@@ -28,13 +28,13 @@
             <!-- Step 1: Date & Time Selection -->
             <div style="margin-bottom: 2.5rem;">
                 <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📅</span> When do you want to play?
+                    <span>📅</span> Kapan Anda ingin bermain?
                 </h3>
 
                 <!-- Responsive Grid -->
                 <div class="datetime-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
-                        <label for="date" style="font-weight: 600;">Date</label>
+                        <label for="date" style="font-weight: 600;">Tanggal</label>
                         <input type="date" id="date" name="date" 
                                min="<?php echo date('Y-m-d'); ?>" 
                                required
@@ -44,12 +44,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="start_time" style="font-weight: 600;">Start Time</label>
+                        <label for="start_time" style="font-weight: 600;">Waktu Mulai</label>
                         <select id="start_time" name="start_time" required
                                 style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.08); 
                                        border: 1px solid var(--border-color); border-radius: 8px; 
                                        color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">
-                            <option value="">Select time</option>
+                            <option value="">Pilih waktu</option>
                             <?php for ($hour = 12; $hour <= 23; $hour++): ?>
                                 <option value="<?php echo sprintf('%02d:00', $hour); ?>">
                                     <?php echo sprintf('%02d:00', $hour); ?>
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="duration" style="font-weight: 600;">Duration (hours)</label>
+                        <label for="duration" style="font-weight: 600;">Durasi (jam)</label>
                         <select id="duration" name="duration" required
                                 style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.08); 
                                        border: 1px solid var(--border-color); border-radius: 8px; 
@@ -77,14 +77,14 @@
                 <button type="button" id="checkAvailability" 
                         class="btn btn-outline" 
                         style="margin-top: 1.5rem; font-weight: 600; width: 100%; max-width: 300px;">
-                    🔍 Check Available Tables
+                    🔍 Periksa Meja yang Tersedia
                 </button>
             </div>
 
             <!-- Step 2: Table Selection -->
             <div id="tableSelection" style="display: none; margin-bottom: 2.5rem;">
                 <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🎱</span> Select Your Table
+                    <span>🎱</span> Pilih Meja
                 </h3>
                 <div id="tablesContainer" 
                      style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
@@ -95,7 +95,7 @@
             <!-- Step 3: Package Selection -->
             <div id="packageSelection" style="display: none; margin-bottom: 2.5rem;">
                 <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>💰</span> Choose Your Package
+                    <span>💰</span> Pilih Paket
                 </h3>
                 <div id="packagesContainer" style="display: flex; flex-direction: column; gap: 1rem;">
                     <!-- Packages loaded dynamically -->
@@ -105,12 +105,12 @@
             <!-- Step 4: Booking Summary -->
             <div id="bookingSummary" style="display: none; margin-bottom: 2rem;">
                 <h3 style="font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📋</span> Booking Summary
+                    <span>📋</span> Ringkasan Pemesanan
                 </h3>
                 <div class="card" style="background: rgba(255, 255, 255, 0.05);">
                     <div id="summaryContent"></div>
                     <div style="margin-top: 1.5rem;">
-                        <label for="customer_name" style="font-weight: 600;">Customer Name</label>
+                        <label for="customer_name" style="font-weight: 600;">Nama Pelanggan</label>
                         <input type="text" id="customer_name" name="customer_name" 
                                value="<?php echo htmlspecialchars(Auth::user()['name'] ?? ''); ?>"
                                style="width: 100%; padding: 0.75rem; background: rgba(255, 255, 255, 0.08); 
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; font-weight: 700; width: 100%;">
-                    🎯 Confirm Booking
+                    🎯 Konfirmasi Pemesanan
                 </button>
             </div>
         </form>

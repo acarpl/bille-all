@@ -3,7 +3,7 @@
         <div style="margin-bottom: 2rem;">
             <a href="<?= Router::url('tournaments') ?>" style="display: inline-flex; align-items: center; gap: 0.5rem; 
                      color: var(--text-muted); font-weight: 600; text-decoration: none;">
-                ← Back to Tournaments
+                ← Kembali ke Turnamen
             </a>
         </div>
 
@@ -47,13 +47,13 @@
                 <!-- Tournament Info Card -->
                 <div class="card" style="margin-bottom: 2rem;">
                     <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span>📋</span> Tournament Details
+                        <span>📋</span> Detail Turnamen
                     </h2>
                     
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                🎮 Tournament Type
+                                🎮 Jenis Turnamen
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem;">
                                 <?= ucfirst($data['tournament']['type']) ?>
@@ -62,7 +62,7 @@
                         
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                💰 Entry Fee
+                                💰 Biaya Masuk
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem; color: var(--accent);">
                                 Rp <?= number_format($data['tournament']['entry_fee'], 0, ',', '.') ?>
@@ -71,7 +71,7 @@
                         
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                🏆 Prize Pool
+                                🏆 Hadiah Utama
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem;">
                                 Rp <?= number_format($data['tournament']['prize_pool'], 0, ',', '.') ?>
@@ -80,16 +80,16 @@
                         
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                👥 Max Participants
+                                👥 Maksimal Peserta
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem;">
-                                <?= $data['tournament']['max_participants'] ?> teams
+                                <?= $data['tournament']['max_participants'] ?> tim
                             </div>
                         </div>
                         
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                📅 Start Date
+                                📅 Tanggal Mulai
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem;">
                                 <?= date('M j, Y g:i A', strtotime($data['tournament']['start_date'])) ?>
@@ -98,7 +98,7 @@
                         
                         <div>
                             <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">
-                                ⏰ Register By
+                                ⏰ Registrasi Sebelum
                             </div>
                             <div style="font-weight: 700; font-size: 1.1rem;">
                                 <?= date('M j, Y g:i A', strtotime($data['tournament']['registration_deadline'])) ?>
@@ -109,22 +109,22 @@
                     <!-- Registration Status -->
                     <div style="margin-top: 1rem; padding: 1rem; background: rgba(52, 152, 219, 0.1); 
                                 border-radius: 8px; border-left: 4px solid #3498db;">
-                        <div style="font-weight: 600; margin-bottom: 0.5rem;">📊 Registration Status</div>
+                        <div style="font-weight: 600; margin-bottom: 0.5rem;">📊 Status Pendaftaran</div>
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
                             <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted);">Registered</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Terdaftar</div>
                                 <div style="font-weight: 800; font-size: 1.2rem;">
                                     <?= count($data['registrations']) ?>
                                 </div>
                             </div>
                             <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted);">Capacity</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Kapasitas</div>
                                 <div style="font-weight: 800; font-size: 1.2rem;">
                                     <?= $data['tournament']['max_participants'] ?>
                                 </div>
                             </div>
                             <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted);">Available</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Tersedia</div>
                                 <div style="font-weight: 800; font-size: 1.2rem; 
                                      color: <?= ($data['tournament']['max_participants'] - count($data['registrations'])) > 0 ? '#2ecc71' : '#e74c3c' ?>">
                                     <?= $data['tournament']['max_participants'] - count($data['registrations']) ?>
@@ -138,7 +138,7 @@
                 <?php if (!empty($data['tournament']['rules'])): ?>
                 <div class="card">
                     <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span>📜</span> Tournament Rules
+                        <span>📜</span> Aturan Turnamen
                     </h2>
                     <div style="line-height: 1.6; white-space: pre-line;">
                         <?= htmlspecialchars($data['tournament']['rules']) ?>
@@ -157,15 +157,15 @@
                 <?php if (strtotime($data['tournament']['registration_deadline']) > time()): ?>
                     <?php if (count($data['registrations']) < $data['tournament']['max_participants']): ?>
                         <h3 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span>🚀</span> Ready to Join?
+                            <span>🚀</span> Siap Bergabung?
                         </h3>
                         
                         <div style="margin-bottom: 1.5rem;">
                             <div style="background: rgba(52, 152, 219, 0.1); padding: 1rem; border-radius: 8px; 
                                       border-left: 4px solid #3498db;">
-                                <div style="font-weight: 600; margin-bottom: 0.5rem;">📝 Registration Open</div>
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">📝 Pendaftaran Dibuka</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Spots available: <strong><?= $data['tournament']['max_participants'] - count($data['registrations']) ?></strong>
+                                    Slot tersedia: <strong><?= $data['tournament']['max_participants'] - count($data['registrations']) ?></strong>
                                 </div>
                             </div>
                         </div>
@@ -174,16 +174,16 @@
                            style="width: 100%; padding: 1rem; background: var(--accent); color: white; 
                                   border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; 
                                   cursor: pointer; text-decoration: none; display: block; text-align: center;">
-                            🎯 Register Now
+                            🎯 Daftar Sekarang
                         </a>
                     <?php else: ?>
                         <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
                             <div style="font-size: 3rem; margin-bottom: 1rem;">😔</div>
-                            <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Tournament Full</h3>
-                            <p>All spots have been taken.</p>
+                            <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Turnamen Penuh</h3>
+                            <p>Semua slot telah terisi.</p>
                             <div style="margin-top: 1rem; font-size: 0.9rem;">
                                 <a href="<?= Router::url('tournaments') ?>" style="color: var(--accent);">
-                                    Browse other tournaments
+                                    Telusuri turnamen lainnya
                                 </a>
                             </div>
                         </div>
@@ -191,26 +191,26 @@
                 <?php else: ?>
                     <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
                         <div style="font-size: 3rem; margin-bottom: 1rem;">⏰</div>
-                        <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Registration Closed</h3>
-                        <p>Registration deadline has passed.</p>
+                        <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Pendaftaran Ditutup</h3>
+                        <p>Batas waktu pendaftaran telah berlalu.</p>
                     </div>
                 <?php endif; ?>
             <?php else: ?>
                 <div style="text-align: center; padding: 2rem;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
                     <h3 style="font-weight: 700; margin-bottom: 0.5rem; color: #2ecc71;">
-                        You're Registered!
+                        Anda Terdaftar!
                     </h3>
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                        Good luck in the tournament! 🏆
+                        Semoga beruntung di turnamen! 🏆
                     </p>
                     
                     <div style="display: flex; flex-direction: column; gap: 1rem;">
                         <a href="<?= Router::url('tournaments/my') ?>" class="btn btn-primary">
-                            📋 View My Registrations
+                            📋 Lihat Pendaftaran Saya
                         </a>
                         <a href="<?= Router::url('tournaments') ?>" class="btn" style="background: var(--bg-secondary);">
-                            🏆 Browse More Tournaments
+                            🏆 Telusuri Turnamen Lainnya
                         </a>
                     </div>
                 </div>
@@ -218,15 +218,15 @@
         <?php else: ?>
             <div style="text-align: center; padding: 2rem;">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-                <h3 style="font-weight: 700; margin-bottom: 1rem;">Login Required</h3>
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">Login Diperlukan</h3>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Please login to register for this tournament.
+                    Silakan login untuk mendaftar turnamen ini.
                 </p>
                 <a href="<?= Router::url('auth/login') ?>?redirect=<?= urlencode('tournaments/view/' . $data['tournament']['id']) ?>" 
                    style="display: inline-block; padding: 0.75rem 1.5rem; 
                           background: var(--accent); color: white; border-radius: 8px; 
                           text-decoration: none; font-weight: 600;">
-                    🔑 Login Now
+                    🔑 Login Sekarang
                 </a>
             </div>
         <?php endif; ?>
@@ -235,7 +235,7 @@
     <!-- Participants Card -->
     <div class="card" style="margin-top: 1.5rem;">
         <h3 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span>👥</span> Participants 
+            <span>👥</span> Peserta
             <span style="margin-left: auto; padding: 0.25rem 0.75rem; border-radius: 20px; 
                   font-size: 0.8rem; font-weight: 600; background: var(--bg-secondary);">
                 <?= count($data['registrations']) ?>/<?= $data['tournament']['max_participants'] ?>
@@ -279,7 +279,7 @@
         <?php else: ?>
             <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
                 <div style="font-size: 2rem; margin-bottom: 0.5rem;">😴</div>
-                <p>No participants yet. Be the first to register!</p>
+                <p>Belum ada peserta. Jadilah yang pertama mendaftar!</p>
             </div>
         <?php endif; ?>
     </div>

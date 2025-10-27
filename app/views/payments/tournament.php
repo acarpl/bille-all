@@ -5,17 +5,17 @@
         <a href="<?= Router::url('tournaments/my') ?>" 
            style="display: inline-flex; align-items: center; gap: 0.5rem; 
                   color: var(--text-muted); font-weight: 600; text-decoration: none;">
-            ← Back to My Registrations
+            ← Kembali ke Pendaftaran Tournament
         </a>
     </div>
 
     <!-- Header -->
     <div style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
-            💰 Tournament Payment
+            💰 Pembayaran Turnamen
         </h1>
         <p style="color: var(--text-muted); font-weight: 500;">
-            Complete your payment for <?= htmlspecialchars($data['registration']['tournament_name']) ?>
+            Selesaikan pembayaran Anda untuk <?= htmlspecialchars($data['registration']['tournament_name']) ?>
         </p>
     </div>
 
@@ -42,7 +42,7 @@
     <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto;">
         <div class="card">
             <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>💳</span> Select Payment Method
+                <span>💳</span> Pilih Metode Pembayaran
             </h2>
 
             <!-- Payment Methods -->
@@ -84,14 +84,14 @@
 
             <!-- Submit Button -->
             <button id="confirmPaymentBtn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-weight: 700; font-size: 1.1rem;" disabled>
-                🚀 Confirm Payment Method
+                🚀 Konfirmasi Metode Pembayaran
             </button>
         </div>
 
         <!-- Order Summary -->
         <div class="card">
             <h2 style="font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span>📋</span> Order Summary
+                <span>📋</span> Ringkasan Pesanan
             </h2>
             <!-- ... (sama seperti sebelumnya) ... -->
             <div style="text-align: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
@@ -100,19 +100,19 @@
                     <?= htmlspecialchars($data['registration']['tournament_name']) ?>
                 </h3>
                 <div style="color: var(--text-muted);">
-                    Team: <strong><?= htmlspecialchars($data['registration']['team_name']) ?></strong>
+                    Tim: <strong><?= htmlspecialchars($data['registration']['team_name']) ?></strong>
                 </div>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-                <h4 style="font-weight: 700; margin-bottom: 1rem;">Payment Details</h4>
+                <h4 style="font-weight: 700; margin-bottom: 1rem;">Rincian Pembayaran</h4>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Entry Fee (<?= $data['registration']['player_count'] ?> players):</span>
+                        <span style="color: var(--text-muted);">Biaya Pendaftaran (<?= $data['registration']['player_count'] ?> pemain):</span>
                         <span>Rp <?= number_format($data['registration']['total_fee'], 0, ',', '.') ?></span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Admin Fee:</span>
+                        <span style="color: var(--text-muted);">Biaya Admin:</span>
                         <span>Rp 0</span>
                     </div>
                     <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; 
@@ -126,14 +126,14 @@
             </div>
 
             <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-                <h4 style="font-weight: 700; margin-bottom: 0.75rem;">Tournament Info</h4>
+                <h4 style="font-weight: 700; margin-bottom: 0.75rem;">Informasi Turnamen</h4>
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem;">
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Start Date:</span>
+                        <span style="color: var(--text-muted);">Tanggal Mulai:</span>
                         <span><?= date('M j, Y', strtotime($data['registration']['start_date'])) ?></span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Payment Deadline:</span>
+                        <span style="color: var(--text-muted);">Batas Waktu Pembayaran:</span>
                         <span><?= date('M j, Y', strtotime($data['registration']['registration_deadline'])) ?></span>
                     </div>
                 </div>
@@ -141,10 +141,10 @@
 
             <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(241, 196, 15, 0.1); 
                        border-radius: 12px; border-left: 4px solid #f39c12;">
-                <div style="font-weight: 600; margin-bottom: 0.5rem;">⚠️ Important</div>
+                <div style="font-weight: 600; margin-bottom: 0.5rem;">⚠️ Penting</div>
                 <div style="font-size: 0.95rem; color: var(--text-muted);">
-                    Registration will be cancelled automatically if payment is not completed 
-                    before the deadline.
+                    Pendaftaran akan dibatalkan secara otomatis jika pembayaran tidak diselesaikan 
+                    sebelum batas waktu.
                 </div>
             </div>
         </div>

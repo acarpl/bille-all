@@ -4,17 +4,17 @@
             <a href="<?= Router::url('payment/instructions/' . $data['payment']['id']) ?>" 
                style="display: inline-flex; align-items: center; gap: 0.5rem; 
                       color: var(--text-muted); font-weight: 600; text-decoration: none;">
-                ← Back to Payment Instructions
+                ← Kembali ke Instruksi Pembayaran
             </a>
         </div>
 
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 3rem;">
             <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
-                📎 Upload Payment Proof
+                📎 Unggah Bukti Pembayaran
             </h1>
             <p style="color: var(--text-muted); font-weight: 500;">
-                Upload your payment receipt for verification
+                Unggah bukti pembayaran Anda untuk verifikasi
             </p>
         </div>
 
@@ -49,7 +49,7 @@
                         <?= htmlspecialchars($data['payment']['tournament_name']) ?>
                     </h2>
                     <div style="color: var(--text-muted); margin-bottom: 1rem;">
-                        Team: <strong><?= htmlspecialchars($data['payment']['team_name']) ?></strong>
+                        Tim: <strong><?= htmlspecialchars($data['payment']['team_name']) ?></strong>
                     </div>
                     <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">
                         Rp <?= number_format($data['payment']['amount'], 0, ',', '.') ?>
@@ -61,7 +61,7 @@
                     <input type="hidden" name="payment_id" value="<?= $data['payment']['id'] ?>">
                     
                     <div style="margin-bottom: 2rem;">
-                        <h3 style="font-weight: 700; margin-bottom: 1rem;">Upload Payment Proof</h3>
+                        <h3 style="font-weight: 700; margin-bottom: 1rem;">Unggah Bukti Pembayaran</h3>
                         
                         <!-- File Upload Area -->
                         <div id="uploadArea" 
@@ -70,7 +70,7 @@
                                     transition: all 0.3s ease; margin-bottom: 1rem;">
                             <div style="font-size: 4rem; margin-bottom: 1rem;">📁</div>
                             <div style="font-weight: 600; margin-bottom: 0.5rem;">
-                                Click to upload or drag and drop
+                                Klik untuk memilih file atau seret dan lepas di sini
                             </div>
                             <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
                                 PNG, JPG, JPEG files (Max 2MB)
@@ -91,7 +91,7 @@
                         <!-- Upload Progress -->
                         <div id="progressContainer" style="display: none; margin-bottom: 1rem;">
                             <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
-                                <span>Uploading...</span>
+                                <span>Mengunggah...</span>
                                 <span id="progressPercent">0%</span>
                             </div>
                             <div style="background: var(--bg-secondary); height: 6px; border-radius: 3px; overflow: hidden;">
@@ -103,21 +103,21 @@
 
                     <!-- Additional Information -->
                     <div style="margin-bottom: 2rem;">
-                        <h3 style="font-weight: 700; margin-bottom: 1rem;">Additional Information</h3>
+                        <h3 style="font-weight: 700; margin-bottom: 1rem;">Informasi Tambahan</h3>
                         
                         <div style="margin-bottom: 1rem;">
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
-                                Sender Name (if different)
+                                Nama Pengirim (jika berbeda)
                             </label>
                             <input type="text" id="sender_name" name="sender_name"
                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); 
                                           border-radius: 8px; font-size: 1rem;"
-                                   placeholder="Name as shown in bank transfer">
+                                   placeholder="Nama sesuai yang tertera di transfer bank">
                         </div>
 
                         <div style="margin-bottom: 1rem;">
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
-                                Transfer Date & Time
+                                Tanggal & Waktu Transfer
                             </label>
                             <input type="datetime-local" id="transfer_date" name="transfer_date"
                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); 
@@ -126,12 +126,12 @@
 
                         <div>
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
-                                Additional Notes (Optional)
+                                Catatan Tambahan (Opsional)
                             </label>
                             <textarea id="notes" name="notes" rows="3"
                                       style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); 
                                              border-radius: 8px; font-size: 1rem; resize: vertical;"
-                                      placeholder="Any additional information about your payment..."></textarea>
+                                      placeholder="Informasi tambahan tentang pembayaran Anda..."></textarea>
                         </div>
                     </div>
 
@@ -140,21 +140,21 @@
                             style="width: 100%; padding: 1rem; background: var(--accent); color: white; 
                                    border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; 
                                    cursor: pointer; transition: background 0.3s ease;">
-                        📤 Submit Payment Proof
+                        📤 Unggah Bukti Pembayaran
                     </button>
                 </form>
 
                 <!-- Upload Guidelines -->
                 <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
-                    <h3 style="font-weight: 700; margin-bottom: 1rem;">📋 Upload Guidelines</h3>
+                    <h3 style="font-weight: 700; margin-bottom: 1rem;">📋 Unggah Pedoman</h3>
                     
                     <div style="display: grid; gap: 1rem;">
                         <div style="display: flex; gap: 1rem;">
                             <div style="color: #27ae60; font-weight: 700;">✅</div>
                             <div>
-                                <div style="font-weight: 600;">Clear and Readable</div>
+                                <div style="font-weight: 600;">Jelas dan Terbaca</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Ensure all text is clearly visible
+                                    Pastikan semua teks terlihat jelas
                                 </div>
                             </div>
                         </div>
@@ -162,9 +162,9 @@
                         <div style="display: flex; gap: 1rem;">
                             <div style="color: #27ae60; font-weight: 700;">✅</div>
                             <div>
-                                <div style="font-weight: 600;">Complete Information</div>
+                                <div style="font-weight: 600;">Informasi Lengkap</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Show sender name, amount, and date
+                                    Tampilkan nama pengirim, jumlah, dan tanggal
                                 </div>
                             </div>
                         </div>
@@ -172,9 +172,9 @@
                         <div style="display: flex; gap: 1rem;">
                             <div style="color: #e74c3c; font-weight: 700;">❌</div>
                             <div>
-                                <div style="font-weight: 600;">No Blurry Images</div>
+                                <div style="font-weight: 600;">Gambar Jelas</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Avoid blurry or dark photos
+                                    Hindari foto yang buram atau gelap
                                 </div>
                             </div>
                         </div>
@@ -182,9 +182,9 @@
                         <div style="display: flex; gap: 1rem;">
                             <div style="color: #e74c3c; font-weight: 700;">❌</div>
                             <div>
-                                <div style="font-weight: 600;">No Screenshots of Apps</div>
+                                <div style="font-weight: 600;">Jangan hanya Screenshot Aplikasi</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                                    Upload actual receipt, not app screenshots
+                                    Unggah bukti pembayaran yang sebenarnya, bukan tangkapan layar aplikasi
                                 </div>
                             </div>
                         </div>
@@ -194,20 +194,20 @@
 
             <!-- Support Information -->
             <div class="card" style="margin-top: 2rem; text-align: center;">
-                <h3 style="font-weight: 700; margin-bottom: 1rem;">Need Help?</h3>
+                <h3 style="font-weight: 700; margin-bottom: 1rem;">Butuh Bantuan?</h3>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    If you're having trouble with the upload process, contact our support team.
+                    Jika Anda mengalami kesulitan dengan proses unggah, hubungi tim dukungan kami.
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
                     <a href="https://wa.me/6281234567890" target="_blank" 
                        style="padding: 0.75rem 1.5rem; background: #25D366; color: white; 
                               border-radius: 8px; text-decoration: none; font-weight: 600;">
-                        📱 WhatsApp Support
+                        📱 Dukungan WhatsApp
                     </a>
                     <a href="mailto:support@billesouthside.com" 
                        style="padding: 0.75rem 1.5rem; background: var(--bg-secondary); 
                               border-radius: 8px; text-decoration: none; font-weight: 600;">
-                        ✉️ Email Support
+                        ✉️ Dukungan Email
                     </a>
                 </div>
             </div>

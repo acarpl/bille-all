@@ -523,15 +523,15 @@ $currentRoute = isset($current_route) ? $current_route : '';
                 <!-- Mobile menu for logged in users -->
                 <a href="<?php echo Router::url('home'); ?>" 
                    class="navbar-link <?php echo $currentRoute === 'home' ? 'active' : ''; ?>">
-                    🏠 Home
+                    🏠 Beranda
                 </a>
                 <a href="<?php echo Router::url('booking'); ?>" 
                    class="navbar-link <?php echo strpos($currentRoute, 'booking') !== false ? 'active' : ''; ?>">
-                    📅 Booking
+                    📅 Pemesanan
                 </a>
                 <a href="<?php echo Router::url('tournaments'); ?>" 
                    class="navbar-link <?php echo strpos($currentRoute, 'tournaments') !== false ? 'active' : ''; ?>">
-                    🏆 Tournaments
+                    🏆 Turnamen
                 </a>
                 <a href="<?php echo Router::url('menu'); ?>" 
                    class="navbar-link <?php echo strpos($currentRoute, 'menu') !== false ? 'active' : ''; ?>">
@@ -552,10 +552,10 @@ $currentRoute = isset($current_route) ? $current_route : '';
                     </button>
                     <div class="navbar-dropdown-content">
                         <a href="<?php echo Router::url('auth/profile'); ?>" class="navbar-dropdown-link">
-                            📊 My Profile
+                            📊 Profil Saya
                         </a>
                         <a href="<?php echo Router::url('auth/logout'); ?>" class="navbar-dropdown-link logout">
-                            🚪 Logout
+                            🚪 Keluar
                         </a>
                     </div>
                 </div>
@@ -564,11 +564,11 @@ $currentRoute = isset($current_route) ? $current_route : '';
                 <!-- Mobile menu for guests -->
                 <a href="<?php echo Router::url('auth/login'); ?>" 
                    class="navbar-link <?php echo $currentRoute === 'auth/login' ? 'active' : ''; ?>">
-                    🔐 Login
+                    🔐 Masuk
                 </a>
                 <a href="<?php echo Router::url('auth/register'); ?>" 
                    class="navbar-link <?php echo $currentRoute === 'auth/register' ? 'active' : ''; ?>">
-                    📝 Sign Up
+                    📝 Daftar
                 </a>
             <?php endif; ?>
         </div>
