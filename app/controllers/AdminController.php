@@ -995,7 +995,7 @@ private function getTournamentRevenueByDateRange($startDate, $endDate) {
 }
 
 private function handleImageUpload($file) {
-    $uploadDir = APP_PATH . '../../public/assets/images/products/';
+    $uploadDir = dirname(APP_PATH, 2) . '/public/assets/images/products/';
     
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0755, true);
@@ -1024,7 +1024,7 @@ private function handleImageUpload($file) {
 }
 
 private function deleteImage($filename) {
-    $filepath = APP_PATH . '../../public/assets/images/products/' . $filename;
+    $filepath = APP_PATH . '/public/assets/images/products/' . $filename;
     if (file_exists($filepath)) {
         unlink($filepath);
     }

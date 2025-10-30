@@ -110,7 +110,7 @@
         <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
             Pindai QRIS BILLE untuk membayar pesanan Anda. Jangan konfirmasi setelah membayar.
         </p>
-       <button onclick="confirmQrisPayment()" class="btn btn-primary" style="margin-bottom: 0.5rem;">✅ I’ve Paid</button><br>
+       <button onclick="confirmQrisPayment()" class="btn btn-primary" style="margin-bottom: 0.5rem;">✅ Sudah Bayar</button><br>
         <button onclick="closeQrisModal()" class="btn btn-outline">✖ Close</button>
     </div>
 </div>
@@ -124,10 +124,19 @@ function closeQrisModal() {
 }
 
 function confirmQrisPayment() {
-    const bookingId = <?php echo $booking['booking_id']; ?>;
+    const bookingId = <?php echo (int)$booking['booking_id']; ?>;
+    const userName = <?php echo json_encode($booking['user_name'] ?? Auth::user()['name']); ?>;
+    const whatsappNumber = '6285129482769';
     if (confirm('Confirm that you have paid via QRIS?')) {
         updatePaymentMethod(bookingId, 'qris');
         closeQrisModal();
+
+        // Bangun pesan
+        const message = `Halo Bille Southside!\n\nSaya telah melakukan pembayaran QRIS untuk booking:\nID Booking: ${bookingId}\nNama: ${userName}\n\nMohon konfirmasi pembayaran saya. Terima kasih!`;
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        // Buka di tab baru
+        window.open(url, '_blank');
     }
 }
 
