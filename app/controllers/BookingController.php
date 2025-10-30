@@ -131,7 +131,8 @@ class BookingController extends Controller {
                 'package_id' => $packageId,
                 'customer_name' => $customerName,
                 'start_time' => $startDateTime,
-                'duration_hours' => $duration,
+                'end_time' => $endDateTime,          // ← TAMBAHKAN INI
+                'duration_hours' => $duration,       // ← PASTIKAN INI ADA
                 'total_amount' => $totalPrice,
                 'status' => 'confirmed',
                 'booking_type' => 'per_jam'
