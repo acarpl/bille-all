@@ -40,7 +40,7 @@
             
             <div class="products-grid">
                 <?php foreach ($groupedProducts['food'] ?? [] as $product): ?>
-                    <div class="product-card" data-category="food">
+                    <div class="product-card" data-category="food" style="display: flex; flex-direction: column; align-items: start; justify-content: space-between;">
                         <div class="product-image">
                             <?php if ($product['image']): ?>
                                             <img src="<?php echo BASE_URL; ?>/public/assets/images/products/<?php echo htmlspecialchars($product['image']); ?>"
@@ -337,11 +337,11 @@
 
 <!-- Shopping Cart Sidebar -->
 <div id="cartSidebar" style="position: fixed; top: 0; right: -400px; width: 400px; height: 100vh; 
-                            background: var(--card-bg); border-left: 1px solid var(--border-color);
+                            background: #000000; opacity: 0.85; border-left: 1px solid var(--border-color);
                             transition: right 0.3s ease; z-index: 1000; padding: 2rem; overflow-y: auto;">
-    <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
         <h3 style="font-weight: 700;">🛒 Pesanan Anda</h3>
-        <button id="closeCart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+        <button id="closeCart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);">
             ✕
         </button>
     </div>
