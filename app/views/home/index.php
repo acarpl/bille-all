@@ -54,7 +54,7 @@
                 <a href="<?php echo Router::url('auth/register'); ?>" class="btn btn-primary" style="font-weight: 700; white-space: nowrap;">
                     🎱 Mulai main!
                 </a>
-                <a href="<?php echo Router::url('about'); ?>" class="btn btn-outline" style="font-weight: 600; white-space: nowrap;">
+                <a href="#about-container" class="btn btn-outline" style="font-weight: 600; white-space: nowrap;">
                     Info selengkapnya
                 </a>
             </div>
@@ -158,33 +158,63 @@
     </div>
 
     <!-- Tentang Section -->
-<div style="margin-top: 4rem; padding: 3rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));">
+<!-- Tentang Section -->
+<div id="about-container" style="margin-top: 4rem; padding: 3rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));">
   <div style="max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
-    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center;">
 
-      <div>
-        <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: .75rem;">Tentang <span style="color: var(--accent);">Bille Southside</span></h2>
+    <div style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+    ">
+
+      <!-- Teks -->
+      <div style="
+        flex: 1 1 350px;
+        min-width: 280px;
+      ">
+        <h2 style="font-size: clamp(1.8rem, 3vw, 2.25rem); font-weight: 800; margin-bottom: .75rem;">
+          Tentang <span style="color: var(--accent);">Bille Southside</span>
+        </h2>
+
         <p style="color: var(--text-muted); font-weight: 500; line-height: 1.7; margin-bottom: 1.25rem;">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo non magna dignissim gravida. 
-          Maecenas interdum, libero vel euismod sodales, felis nisl porttitor lorem, nec euismod urna ligula ut elit. 
-          Curabitur sit amet augue sit amet ligula faucibus tincidunt.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo non magna dignissim gravida.
         </p>
+
         <p style="color: var(--text-muted); font-weight: 500; line-height: 1.7; margin-bottom: 1.25rem;">
-          Vivamus sagittis, velit in sodales tincidunt, lorem sapien pretium neque, at dignissim augue lorem nec orci. 
-          Aenean placerat quam in odio iaculis, in suscipit neque vestibulum. Pellentesque habitant morbi tristique senectus et netus.
+          Vivamus sagittis, velit in sodales tincidunt, lorem sapien pretium neque, at dignissim augue lorem nec orci.
         </p>
       </div>
 
       <!-- Gambar -->
-      <div>
+      <div style="
+        flex: 1 1 300px;
+        min-width: 280px;
+      ">
         <div style="
-          border-radius: 14px; overflow:hidden; height: 100%; min-height: 320px;
+          border-radius: 14px;
+          overflow: hidden;
+          height: 100%;
+          min-height: 300px;
           box-shadow: 0 10px 30px rgba(0,0,0,.25);
           background-image: url('<?php echo BASE_URL; ?>/public/assets/images/bille-hero.jpg');
-          background-size: cover; background-position: center;">
-        </div>
+          background-size: cover;
+          background-position: center;
+        "></div>
       </div>
+
     </div>
+
   </div>
 </div>
+
 </div>
+
+<style>
+
+html{
+    scroll-behavior: smooth;
+}
+</style>
